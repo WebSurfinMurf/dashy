@@ -111,6 +111,24 @@ sections:
         target: newtab
         statusCheck: true
         tags: [database, postgres]
+      
+      - title: Mongo Express
+        description: MongoDB Management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/mongodb.png
+        url: https://mongo.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        statusCheckUrl: https://mongo.ai-servicers.com/oauth2/ping
+        tags: [database, mongodb]
+      
+      - title: Redis Commander
+        description: Redis Management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/redis.png
+        url: https://redis.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        statusCheckUrl: https://redis.ai-servicers.com/oauth2/ping
+        tags: [database, redis, cache]
 
   - name: Development Tools
     icon: fas fa-code
@@ -125,7 +143,7 @@ sections:
       - title: ShellHub
         description: SSH Gateway
         icon: fas fa-terminal
-        url: http://linuxserver.lan:3000
+        url: https://shellhub.ai-servicers.com
         target: newtab
         statusCheck: true
         tags: [ssh, remote]
