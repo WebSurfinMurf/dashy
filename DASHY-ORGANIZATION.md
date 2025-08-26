@@ -3,20 +3,21 @@
 ## Overview
 This document defines the categorization and organization structure for services in the Dashy dashboard at https://dashy.ai-servicers.com
 
-## Current Status Summary <UPDATE>
-- **Total Services Deployed**: 12 active services
-- **In Dashy**: 10 services (✅)
-- **Need Adding**: 1 service (🚀 phpMyAdmin)
-- **Planned**: 23+ services (📋)
-- **Categories in Use**: 4 out of 11 categories have active services
-
-### Quick Stats <UPDATE>
-- **Core Services**: 2 deployed, 3 planned
-- **Email Services**: 3 deployed (all configured)
-- **Infrastructure**: 4 deployed, 1 needs adding
-- **Authentication**: 2 deployed (all configured)
-- **Databases**: 2 backend services running
+## Current Status Summary
+- **Total Services Deployed**: 20+ active services
+- **In Dashy**: Need to recount based on new categorization
+- **External Services**: 4 (GitHub, ChatGPT, Cloudflare, SendGrid)
+- **Categories in Use**: 8 active categories
 - **Networks**: 4 Docker networks active
+
+### Quick Stats
+- **Core Services**: 2 deployed
+- **Development Tools**: 5 deployed
+- **Infrastructure**: 5 deployed
+- **Data & Integration**: 3+ deployed
+- **AI Tools**: 2 deployed (OpenWebUI + ChatGPT)
+- **Architecture**: 1 deployed (Draw.io)
+- **External Services**: 4 active
 
 ## Service Categories
 
@@ -25,19 +26,20 @@ This document defines the categorization and organization structure for services
 **Description**: Essential self-hosted services and collaboration platforms  
 **Currently Active**:
 - ✅ Nextcloud (file sharing and collaboration)
-- Web Portal (https://nginx.ai-servicers.com/) <FIX SYNTAX OF THIS LINE>
+- ✅ Web Portal - https://nginx.ai-servicers.com (Main landing page)
 
 ### 2. Development Tools
 **Icon**: `fas fa-code`  
 **Description**: Development and CI/CD tools  
-**Currently Active**: None
+**Currently Active**:
 - ✅ Guacamole (remote access gateway with SSO)
 - ✅ GitHub repositories (external)
-- Nextcloud Talk <FIX SYNTAX OF THIS LINE>
-- Nextcloud fileshare <FIX SYNTAX OF THIS LINE>
+- ✅ Nextcloud Talk (integrated communication)
+- ✅ Nextcloud Files (code collaboration)
 **Planned**:
 - 📋 Code-server (VS Code in browser)
 - 📋 GitLab
+- 📋 Gitea
 
 ### 3. Infrastructure Management
 **Icon**: `fas fa-tools`  
@@ -54,33 +56,39 @@ This document defines the categorization and organization structure for services
 
 ### 4. Data & Integration Tools
 **Icon**: `fas fa-database`  
-**Description**: Database management interfaces  
+**Description**: Database management and data integration platforms  
 **Currently Active**:
 - ✅ pgAdmin (PostgreSQL management - internal)
-- Redis Commander <FIX SYNTAX OF THIS LINE>
-- MongoDB Express <FIX SYNTAX OF THIS LINE>
+- 🚀 Redis Commander (Redis management - if deployed)
+- 🚀 MongoDB Express (MongoDB management - if deployed)
 **Backend Services** (not in Dashy):
 - 🚀 PostgreSQL (port 5432)
 - 🚀 MariaDB (port 3306)
 **Planned**:
-- 📋 Kafka
+- 📋 Kafka (message streaming)
 - 📋 Paperless-ngx (document management)
+- 📋 n8n (workflow automation)
 
 ### 5. AI Tools
-**Icon**: <UPDATE>
-**Description**: <UPDATE>
+**Icon**: `fas fa-robot`
+**Description**: AI assistants and machine learning platforms
 **Currently Active**: 
-OpenWeb UI ( http://linuxserver.lan:8000/ )
-ChatGPT (external)
+- ✅ OpenWebUI - http://linuxserver.lan:8000 (Local LLM interface)
+- ✅ ChatGPT - https://chat.openai.com (External)
 **Planned**:
-ClaudeCodeUI(siteboon)
+- 📋 Claude Code UI (Siteboon)
+- 📋 Ollama (Local LLM runtime)
+- 📋 Stable Diffusion WebUI
 
-### 6. Architecture
-**Icon**: `fas fa-comments`  
-**Description**: Team communication and messaging  
+### 6. Architecture & Design
+**Icon**: `fas fa-project-diagram`  
+**Description**: Diagramming and system design tools  
 **Currently Active**: 
-Draw-IO
+- ✅ Draw.io (Diagram editor)
 **Planned**:
+- 📋 PlantUML Server
+- 📋 Excalidraw
+- 📋 Kroki (diagram rendering service)
 
 ### 7. Monitoring & Analytics
 **Icon**: `fas fa-chart-line`  
@@ -96,8 +104,10 @@ Draw-IO
 **Icon**: `fas fa-globe`  
 **Description**: External SaaS and third-party services  
 **Currently Active**:
-cloudflare ( https://dash.cloudflare.com/ )
-Sendgrid https://app.sendgrid.com/
+- ✅ Cloudflare - https://dash.cloudflare.com (DNS & CDN)
+- ✅ SendGrid - https://app.sendgrid.com (Email delivery)
+- ✅ GitHub - https://github.com (Code repositories)
+- ✅ ChatGPT - https://chat.openai.com (AI assistant)
 **Potential additions**:
 - Domain registrar panel
 - Cloud provider dashboards
@@ -162,7 +172,7 @@ PostgreSQL database network:
 
 #### guacamole-net
 Guacamole internal network:
-- Guacamole, Guac
+- Guacamole, Guacd
 
 
 ## Update Procedure

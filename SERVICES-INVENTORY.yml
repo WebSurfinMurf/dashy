@@ -1,6 +1,7 @@
 # Services Inventory for ai-servicers.com
 # This file tracks all deployed services and their Dashy configuration
 # Status: ✅ Deployed & In Dashy | 🚀 Deployed, Not in Dashy | 📋 Planned
+# Updated: 2025-08-26 - Reorganized based on new categories
 
 core_services:
   - name: Nextcloud
