@@ -25,11 +25,7 @@ This document defines the categorization and organization structure for services
 **Description**: Essential self-hosted services and collaboration platforms  
 **Currently Active**:
 - ✅ Nextcloud (file sharing and collaboration)
-- Web Portal (https://nginx.ai-servicers.com/)
-**Planned**:
-- 📋 Vaultwarden (password manager)
-- 📋 Gitea (git hosting)
-- 📋 Wiki.js (documentation)
+- Web Portal (https://nginx.ai-servicers.com/) <FIX SYNTAX OF THIS LINE>
 
 ### 2. Development Tools
 **Icon**: `fas fa-code`  
@@ -37,8 +33,8 @@ This document defines the categorization and organization structure for services
 **Currently Active**: None
 - ✅ Guacamole (remote access gateway with SSO)
 - ✅ GitHub repositories (external)
-- Nextcloud Talk
-- Nextcloud fileshare
+- Nextcloud Talk <FIX SYNTAX OF THIS LINE>
+- Nextcloud fileshare <FIX SYNTAX OF THIS LINE>
 **Planned**:
 - 📋 Code-server (VS Code in browser)
 - 📋 GitLab
@@ -61,8 +57,8 @@ This document defines the categorization and organization structure for services
 **Description**: Database management interfaces  
 **Currently Active**:
 - ✅ pgAdmin (PostgreSQL management - internal)
-- Redis Commander
-- MongoDB Express
+- Redis Commander <FIX SYNTAX OF THIS LINE>
+- MongoDB Express <FIX SYNTAX OF THIS LINE>
 **Backend Services** (not in Dashy):
 - 🚀 PostgreSQL (port 5432)
 - 🚀 MariaDB (port 3306)
