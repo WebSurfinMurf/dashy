@@ -1,0 +1,210 @@
+# Services Inventory for ai-servicers.com
+# This file tracks all deployed services and their Dashy configuration
+# Status: ✅ Deployed & In Dashy | 🚀 Deployed, Not in Dashy | 📋 Planned
+
+core_services:
+  - name: Nextcloud
+    status: ✅
+    url: https://nextcloud.ai-servicers.com
+    description: File sharing and collaboration platform
+    icon: nextcloud.png
+    category: Core Services
+    
+  - name: Guacamole
+    status: ✅
+    url: https://guacamole.ai-servicers.com
+    description: Clientless remote desktop gateway
+    icon: guacamole.png
+    category: Core Services
+    auth: Keycloak SSO
+    
+  - name: Vaultwarden
+    status: 📋
+    url: https://vault.ai-servicers.com
+    description: Self-hosted password manager
+    icon: bitwarden.png
+    category: Core Services
+    
+  - name: Wiki.js
+    status: 📋
+    url: https://wiki.ai-servicers.com
+    description: Modern documentation platform
+    icon: wikijs.png
+    category: Documentation
+
+email_services:
+  - name: Roundcube
+    status: ✅
+    url: https://mail.ai-servicers.com
+    description: Traditional webmail interface
+    icon: roundcube.png
+    category: Email Services
+    
+  - name: Snappymail
+    status: ✅
+    url: https://snappy.ai-servicers.com
+    description: Modern lightweight webmail
+    icon: snappymail.png
+    category: Email Services
+    
+  - name: Postfixadmin
+    status: ✅
+    url: http://linuxserver.lan:8902
+    description: Email administration interface
+    icon: email.png
+    category: Email Services
+    internal: true
+
+infrastructure:
+  - name: Portainer
+    status: ✅
+    url: http://linuxserver.lan:9000
+    description: Docker container management
+    icon: portainer.png
+    category: Infrastructure Management
+    internal: true
+    
+  - name: Traefik Dashboard
+    status: ✅
+    url: https://traefik.ai-servicers.com:8083
+    description: Reverse proxy dashboard
+    icon: traefik.png
+    category: Infrastructure Management
+    auth: Basic Auth
+    
+  - name: pgAdmin
+    status: ✅
+    url: http://linuxserver.lan:8901
+    description: PostgreSQL database management
+    icon: pgadmin.png
+    category: Database Tools
+    internal: true
+    
+  - name: phpMyAdmin
+    status: 🚀
+    url: http://linuxserver.lan:8903
+    description: MySQL/MariaDB management
+    icon: phpmyadmin.png
+    category: Database Tools
+    internal: true
+
+authentication:
+  - name: Keycloak
+    status: ✅
+    url: https://keycloak.ai-servicers.com
+    description: Identity and access management
+    icon: keycloak.png
+    category: Authentication & Security
+    critical: true
+    
+  - name: Dashy OAuth Info
+    status: ✅
+    url: https://dashy.ai-servicers.com/oauth2/userinfo
+    description: OAuth2 session information
+    icon: fas fa-user-shield
+    category: Authentication & Security
+
+monitoring:
+  - name: Uptime Kuma
+    status: 📋
+    url: https://uptime.ai-servicers.com
+    description: Uptime monitoring
+    icon: uptime-kuma.png
+    category: Monitoring & Analytics
+    
+  - name: Grafana
+    status: 📋
+    url: https://grafana.ai-servicers.com
+    description: Metrics visualization
+    icon: grafana.png
+    category: Monitoring & Analytics
+
+development:
+  - name: Gitea
+    status: 📋
+    url: https://git.ai-servicers.com
+    description: Git repository hosting
+    icon: gitea.png
+    category: Development Tools
+    
+  - name: Jenkins
+    status: 📋
+    url: https://jenkins.ai-servicers.com
+    description: CI/CD automation server
+    icon: jenkins.png
+    category: Development Tools
+
+databases:
+  - name: PostgreSQL
+    status: 🚀
+    port: 5432
+    description: Primary database server
+    internal: true
+    containers:
+      - postgres
+      
+  - name: MariaDB
+    status: 🚀
+    port: 3306
+    description: MySQL-compatible database
+    internal: true
+    containers:
+      - mailserver
+
+docker_networks:
+  - name: traefik-proxy
+    description: Main reverse proxy network
+    services:
+      - Traefik
+      - Keycloak
+      - Dashy
+      - OAuth2-Proxy
+      - Nextcloud
+      - Guacamole
+      
+  - name: mailserver-net
+    description: Email services network
+    services:
+      - Mailserver
+      - Roundcube
+      - Snappymail
+      - Postfixadmin
+      
+  - name: postgres-net
+    description: PostgreSQL database network
+    services:
+      - PostgreSQL
+      - pgAdmin
+      - Guacamole
+      
+  - name: guacamole-net
+    description: Guacamole internal network
+    services:
+      - Guacamole
+      - Guacd
+
+# Service URLs Reference
+external_urls:
+  production:
+    - dashy.ai-servicers.com
+    - keycloak.ai-servicers.com
+    - nextcloud.ai-servicers.com
+    - mail.ai-servicers.com
+    - snappy.ai-servicers.com
+    - guacamole.ai-servicers.com
+    - traefik.ai-servicers.com:8083
+    
+  internal:
+    - linuxserver.lan:9000 # Portainer
+    - linuxserver.lan:8901 # pgAdmin
+    - linuxserver.lan:8902 # Postfixadmin
+    - linuxserver.lan:8903 # phpMyAdmin
+
+# Notes for Dashy Updates
+notes:
+  - All services with ✅ status should be in Dashy
+  - Services with 🚀 are deployed but not added to Dashy yet
+  - Internal services use linuxserver.lan URLs
+  - External services use ai-servicers.com domain
+  - Critical services should have statusCheck enabled
+  - Use Dashboard Icons CDN when possible for consistency
