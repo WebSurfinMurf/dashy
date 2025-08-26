@@ -3,14 +3,14 @@
 ## Overview
 This document defines the categorization and organization structure for services in the Dashy dashboard at https://dashy.ai-servicers.com
 
-## Current Status Summary
+## Current Status Summary <UPDATE>
 - **Total Services Deployed**: 12 active services
 - **In Dashy**: 10 services (✅)
 - **Need Adding**: 1 service (🚀 phpMyAdmin)
 - **Planned**: 23+ services (📋)
 - **Categories in Use**: 4 out of 11 categories have active services
 
-### Quick Stats
+### Quick Stats <UPDATE>
 - **Core Services**: 2 deployed, 3 planned
 - **Email Services**: 3 deployed (all configured)
 - **Infrastructure**: 4 deployed, 1 needs adding
@@ -25,19 +25,23 @@ This document defines the categorization and organization structure for services
 **Description**: Essential self-hosted services and collaboration platforms  
 **Currently Active**:
 - ✅ Nextcloud (file sharing and collaboration)
-- ✅ Guacamole (remote access gateway with SSO)
+- Web Portal (https://nginx.ai-servicers.com/)
 **Planned**:
 - 📋 Vaultwarden (password manager)
 - 📋 Gitea (git hosting)
 - 📋 Wiki.js (documentation)
 
-### 2. Email Services  
-**Icon**: `fas fa-envelope`  
-**Description**: Email infrastructure and management  
-**Currently Active**:
-- ✅ Roundcube (webmail)
-- ✅ Snappymail (modern webmail)
-- ✅ Postfixadmin (email administration - internal)
+### 2. Development Tools
+**Icon**: `fas fa-code`  
+**Description**: Development and CI/CD tools  
+**Currently Active**: None
+- ✅ Guacamole (remote access gateway with SSO)
+- ✅ GitHub repositories (external)
+- Nextcloud Talk
+- Nextcloud fileshare
+**Planned**:
+- 📋 Code-server (VS Code in browser)
+- 📋 GitLab
 
 ### 3. Infrastructure Management
 **Icon**: `fas fa-tools`  
@@ -45,46 +49,42 @@ This document defines the categorization and organization structure for services
 **Currently Active**:
 - ✅ Portainer (Docker management - internal)
 - ✅ Traefik Dashboard (reverse proxy with basic auth)
-- ✅ pgAdmin (PostgreSQL management - internal)
-- 🚀 phpMyAdmin (MySQL management - needs adding)
-**Planned**:
-- 📋 Uptime Kuma (monitoring)
-- 📋 Nginx Proxy Manager
-
-### 4. Authentication & Security
-**Icon**: `fas fa-shield-alt`  
-**Description**: Identity management and security services  
-**Currently Active**:
+- ✅ Postfixadmin (email administration - internal)
 - ✅ Keycloak Admin Console (critical service)
 - ✅ OAuth2 Proxy userinfo endpoint
 **Planned**:
-- 📋 Fail2ban Dashboard
-- 📋 CrowdSec Dashboard
+- 📋 Nginx Proxy Manager
 
-### 5. Development Tools
-**Icon**: `fas fa-code`  
-**Description**: Development and CI/CD tools  
-**Currently Active**: None
-**Planned**:
-- 📋 Jenkins (CI/CD)
-- 📋 Gitea (git hosting)
-- 📋 Code-server (VS Code in browser)
-- 📋 GitLab
-- 📋 SonarQube (code quality)
 
-### 6. Database Tools
+### 4. Data & Integration Tools
 **Icon**: `fas fa-database`  
 **Description**: Database management interfaces  
 **Currently Active**:
-- ✅ pgAdmin (PostgreSQL - internal)
-- 🚀 phpMyAdmin (MySQL/MariaDB - needs adding)
+- ✅ pgAdmin (PostgreSQL management - internal)
+- Redis Commander
+- MongoDB Express
 **Backend Services** (not in Dashy):
 - 🚀 PostgreSQL (port 5432)
 - 🚀 MariaDB (port 3306)
 **Planned**:
-- 📋 MongoDB Express
-- 📋 Redis Commander
-- 📋 InfluxDB UI
+- 📋 Kafka
+- 📋 Paperless-ngx (document management)
+
+### 5. AI Tools
+**Icon**: <UPDATE>
+**Description**: <UPDATE>
+**Currently Active**: 
+OpenWeb UI ( http://linuxserver.lan:8000/ )
+ChatGPT (external)
+**Planned**:
+ClaudeCodeUI(siteboon)
+
+### 6. Architecture
+**Icon**: `fas fa-comments`  
+**Description**: Team communication and messaging  
+**Currently Active**: 
+Draw-IO
+**Planned**:
 
 ### 7. Monitoring & Analytics
 **Icon**: `fas fa-chart-line`  
@@ -93,44 +93,15 @@ This document defines the categorization and organization structure for services
 **Planned**:
 - 📋 Grafana (metrics visualization)
 - 📋 Uptime Kuma (uptime monitoring)
-- 📋 Prometheus (metrics collection)
 - 📋 Netdata (real-time monitoring)
-- 📋 Plausible Analytics (web analytics)
 
-### 8. Communication Tools
-**Icon**: `fas fa-comments`  
-**Description**: Team communication and messaging  
-**Currently Active**: None
-**Planned**:
-- 📋 Mattermost (team chat)
-- 📋 Rocket.Chat (alternative chat)
-- 📋 Element/Matrix (decentralized chat)
-- 📋 Jitsi Meet (video conferencing)
 
-### 9. Media & Content
-**Icon**: `fas fa-photo-video`  
-**Description**: Media servers and content management  
-**Currently Active**: None
-**Planned**:
-- 📋 Jellyfin/Plex (media server)
-- 📋 PhotoPrism (photo management)
-- 📋 Paperless-ngx (document management)
-- 📋 Calibre-web (ebook library)
-
-### 10. Documentation
-**Icon**: `fas fa-book`  
-**Description**: Documentation and knowledge bases  
-**Currently Active**: None
-**Planned**:
-- 📋 Wiki.js (modern wiki platform)
-- 📋 BookStack (structured documentation)
-- 📋 Outline (knowledge base)
-
-### 11. External Services
+### 8. External Services
 **Icon**: `fas fa-globe`  
 **Description**: External SaaS and third-party services  
 **Currently Active**:
-- ✅ GitHub repositories (if configured)
+cloudflare ( https://dash.cloudflare.com/ )
+Sendgrid https://app.sendgrid.com/
 **Potential additions**:
 - Domain registrar panel
 - Cloud provider dashboards
@@ -175,47 +146,6 @@ Standard tags to use:
 - `dev` - Development tools
 - `prod` - Production services
 
-## Deployment Status Tracking
-
-### Service Status Legend
-- ✅ **In Dashy** - Deployed and configured in dashboard
-- 🚀 **Deployed** - Running but not yet added to Dashy
-- 📋 **Planned** - Not yet deployed
-
-### Current Service Status
-
-#### Core Services
-- ✅ **Nextcloud** - https://nextcloud.ai-servicers.com (File sharing and collaboration)
-- ✅ **Guacamole** - https://guacamole.ai-servicers.com (Remote desktop gateway with Keycloak SSO)
-- 📋 **Vaultwarden** - https://vault.ai-servicers.com (Password manager - planned)
-- 📋 **Wiki.js** - https://wiki.ai-servicers.com (Documentation platform - planned)
-- 📋 **Gitea** - https://git.ai-servicers.com (Git hosting - planned)
-
-#### Email Services  
-- ✅ **Roundcube** - https://mail.ai-servicers.com (Traditional webmail)
-- ✅ **Snappymail** - https://snappy.ai-servicers.com (Modern webmail)
-- ✅ **Postfixadmin** - http://linuxserver.lan:8902 (Email admin - internal only)
-
-#### Infrastructure Management
-- ✅ **Portainer** - http://linuxserver.lan:9000 (Docker management - internal)
-- ✅ **Traefik Dashboard** - https://traefik.ai-servicers.com:8083 (Reverse proxy - basic auth)
-- ✅ **pgAdmin** - http://linuxserver.lan:8901 (PostgreSQL management - internal)
-- 🚀 **phpMyAdmin** - http://linuxserver.lan:8903 (MySQL management - deployed, not in Dashy)
-
-#### Authentication & Security
-- ✅ **Keycloak Admin** - https://keycloak.ai-servicers.com (Identity management - critical)
-- ✅ **Dashy OAuth Info** - https://dashy.ai-servicers.com/oauth2/userinfo (Session info)
-
-#### Monitoring & Analytics
-- 📋 **Uptime Kuma** - https://uptime.ai-servicers.com (Uptime monitoring - planned)
-- 📋 **Grafana** - https://grafana.ai-servicers.com (Metrics visualization - planned)
-
-#### Development Tools
-- 📋 **Jenkins** - https://jenkins.ai-servicers.com (CI/CD - planned)
-
-#### Database Services (Backend)
-- 🚀 **PostgreSQL** - Port 5432 (Primary database - running)
-- 🚀 **MariaDB** - Port 3306 (Mailserver database - running)
 
 ## Docker Network Topology
 
@@ -236,24 +166,8 @@ PostgreSQL database network:
 
 #### guacamole-net
 Guacamole internal network:
-- Guacamole, Guacd
+- Guacamole, Guac
 
-## Action Items
-
-### Services to Add to Dashy (Already Deployed)
-1. 🚀 **phpMyAdmin** - http://linuxserver.lan:8903
-   - Category: Database Tools
-   - Icon: `phpmyadmin.png`
-   - Internal access only
-
-### Services to Deploy Next
-Priority order based on usefulness:
-1. 📋 **Uptime Kuma** - Service monitoring
-2. 📋 **Vaultwarden** - Password management
-3. 📋 **Wiki.js** - Documentation
-4. 📋 **Gitea** - Git repository hosting
-5. 📋 **Grafana** - Metrics visualization
-6. 📋 **Jenkins** - CI/CD automation
 
 ## Update Procedure
 
@@ -300,6 +214,10 @@ When adding a new service:
 - [ ] Test status check functionality
 - [ ] Update this document
 - [ ] Commit configuration changes
+
+
+
+
 
 ---
 *Last Updated: 2025-08-26*  
