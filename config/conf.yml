@@ -9,11 +9,11 @@ pageInfo:
     - title: Keycloak Admin
       path: https://keycloak.ai-servicers.com/
     - title: Traefik Dashboard
-      path: https://traefik.ai-servicers.com:8083
+      path: http://linuxserver.lan:8083
     - title: pgAdmin
-      path: http://linuxserver.lan:8901
+      path: http://linuxserver.lan:8901/browser/
     - title: Portainer
-      path: http://linuxserver.lan:9000
+      path: https://portainer.ai-servicers.com
     - title: Rundeck
       path: http://linuxserver.lan:4440
 
@@ -64,6 +64,14 @@ sections:
   - name: Development Tools
     icon: fas fa-code
     items:
+      - title: GitLab
+        description: Git repository and CI/CD
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/gitlab.png
+        url: https://gitlab.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [dev, git, cicd]
+      
       - title: Guacamole
         description: Remote access gateway with SSO
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/guacamole.png
@@ -78,39 +86,25 @@ sections:
         url: https://github.com
         target: newtab
         tags: [dev, external, git]
-      
-      - title: Nextcloud Talk
-        description: Team communication
-        icon: fas fa-comments
-        url: https://nextcloud.ai-servicers.com/index.php/apps/spreed/
-        target: newtab
-        tags: [dev, communication]
-      
-      - title: Nextcloud Files
-        description: Code collaboration
-        icon: fas fa-folder-open
-        url: https://nextcloud.ai-servicers.com/apps/files
-        target: newtab
-        tags: [dev, collaboration]
 
   - name: Infrastructure Management
     icon: fas fa-tools
     items:
       - title: Portainer
-        description: Docker management
+        description: Docker management (Keycloak SSO + local auth)
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/portainer.png
-        url: http://linuxserver.lan:9000
+        url: https://portainer.ai-servicers.com
         target: newtab
         statusCheck: true
-        tags: [infra, docker, internal]
+        tags: [infra, docker, critical, sso]
       
       - title: Traefik Dashboard
-        description: Reverse proxy management
+        description: Reverse proxy management (internal)
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/traefik.png
-        url: https://traefik.ai-servicers.com:8083
+        url: http://linuxserver.lan:8083
         target: newtab
         statusCheck: true
-        tags: [infra, proxy, critical]
+        tags: [infra, proxy, critical, internal]
       
       - title: Rundeck
         description: Job automation platform
@@ -121,20 +115,12 @@ sections:
         tags: [infra, automation, internal]
       
       - title: Postfixadmin
-        description: Email administration
+        description: Email administration (internal only)
         icon: fas fa-mail-bulk
-        url: http://linuxserver.lan:8902
+        url: https://postfixadmin.linuxserver.lan
         target: newtab
-        statusCheck: true
+        statusCheck: false
         tags: [infra, email, internal]
-      
-      - title: Keycloak Admin
-        description: Identity management
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/keycloak.png
-        url: https://keycloak.ai-servicers.com/
-        target: newtab
-        statusCheck: true
-        tags: [infra, auth, critical]
 
   - name: Data & Integration Tools
     icon: fas fa-database
@@ -142,7 +128,7 @@ sections:
       - title: pgAdmin
         description: PostgreSQL management
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/pgadmin.png
-        url: http://linuxserver.lan:8901
+        url: http://linuxserver.lan:8901/browser/
         target: newtab
         statusCheck: true
         tags: [database, postgres, internal]
@@ -169,10 +155,10 @@ sections:
       - title: OpenWebUI
         description: Local LLM interface
         icon: fas fa-brain
-        url: http://linuxserver.lan:8000
+        url: https://open-webui.ai-servicers.com
         target: newtab
         statusCheck: true
-        tags: [ai, llm, internal]
+        tags: [ai, llm, external]
       
       - title: ChatGPT
         description: OpenAI assistant
@@ -199,22 +185,30 @@ sections:
         target: newtab
         tags: [architecture, documentation]
 
-  - name: Session Management
+  - name: Security
     icon: fas fa-user-shield
     items:
+      - title: Keycloak Admin
+        description: Identity management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/keycloak.png
+        url: https://keycloak.ai-servicers.com/
+        target: newtab
+        statusCheck: true
+        tags: [security, auth, critical]
+      
       - title: OAuth2 Session Info
         description: Current session details
         icon: fas fa-info-circle
         url: https://dashy.ai-servicers.com/oauth2/userinfo
         target: newtab
-        tags: [session, auth]
+        tags: [security, session, auth]
       
       - title: Keycloak Logout
         description: Single sign-out
         icon: fas fa-sign-out-alt
-        url: https://keycloak.ai-servicers.com/realms/master/protocol/openid-connect/logout?redirect_uri=https://dashy.ai-servicers.com
+        url: https://keycloak.ai-servicers.com/realms/master/protocol/openid-connect/logout
         target: newtab
-        tags: [session, logout]
+        tags: [security, session, logout]
 
   - name: External Services
     icon: fas fa-globe
