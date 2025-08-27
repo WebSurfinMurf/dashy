@@ -4,20 +4,22 @@
 This document defines the categorization and organization structure for services in the Dashy dashboard at https://dashy.ai-servicers.com
 
 ## Current Status Summary
-- **Total Services Deployed**: 20+ active services
-- **In Dashy**: Need to recount based on new categorization
-- **External Services**: 4 (GitHub, ChatGPT, Cloudflare, SendGrid)
-- **Categories in Use**: 8 active categories
+- **Total Services Deployed**: 25+ active services/containers
+- **Docker Containers Running**: 21 containers
+- **External Services**: 2 (Cloudflare, SendGrid)
+- **Categories in Use**: 7 active categories
 - **Networks**: 4 Docker networks active
+- **Databases Running**: 3 (PostgreSQL, MongoDB, Redis)
 
 ### Quick Stats
 - **Core Services**: 2 deployed
-- **Development Tools**: 5 deployed
-- **Infrastructure**: 5 deployed
-- **Data & Integration**: 3+ deployed
+- **Development Tools**: 4 deployed (Guacamole, GitHub, Nextcloud apps)
+- **Infrastructure**: 5 deployed (including Rundeck)
+- **Data & Integration**: 3 deployed (pgAdmin, Redis Commander, MongoDB Express)
 - **AI Tools**: 2 deployed (OpenWebUI + ChatGPT)
-- **Architecture**: 1 deployed (Draw.io)
-- **External Services**: 4 active
+- **Architecture**: 2 deployed (Draw.io + Infrastructure Diagrams)
+- **Session Management**: 2 items (OAuth info + Keycloak logout)
+- **External Services**: 2 active (Cloudflare, SendGrid)
 
 ## Service Categories
 
@@ -45,11 +47,13 @@ This document defines the categorization and organization structure for services
 **Icon**: `fas fa-tools`  
 **Description**: System administration and monitoring tools  
 **Currently Active**:
-- ✅ Portainer (Docker management - internal)
-- ✅ Traefik Dashboard (reverse proxy with basic auth)
+- ✅ Portainer - http://linuxserver.lan:9000 (Docker management)
+- ✅ Traefik Dashboard - https://traefik.ai-servicers.com:8083 (Reverse proxy)
+- ✅ Rundeck - http://linuxserver.lan:4440 (Job automation - running 2 months)
 - ✅ Postfixadmin (email administration - internal)
 - ✅ Keycloak Admin Console (critical service)
 - ✅ OAuth2 Proxy userinfo endpoint
+- 🚀 Traefik Certs Dumper (certificate management - running)
 **Planned**:
 - 📋 Nginx Proxy Manager
 
@@ -58,13 +62,15 @@ This document defines the categorization and organization structure for services
 **Icon**: `fas fa-database`  
 **Description**: Database management and data integration platforms  
 **Currently Active**:
-- ✅ pgAdmin (PostgreSQL management - internal)
-- 🚀 Redis Commander (Redis management - if deployed)
-- 🚀 MongoDB Express (MongoDB management - if deployed)
-**Backend Services** (not in Dashy):
+- ✅ pgAdmin - http://linuxserver.lan:8901 (PostgreSQL management)
+- ✅ Redis Commander - https://redis.ai-servicers.com (Redis management)
+- ✅ MongoDB Express - https://mongodb.ai-servicers.com (MongoDB management)
+**Backend Services** (running):
 - 🚀 PostgreSQL (port 5432)
-- 🚀 MariaDB (port 3306)
+- 🚀 MongoDB (port 27017) 
+- 🚀 Redis (port 6379)
 **Planned**:
+- 📋 phpMyAdmin (MySQL/MariaDB management)
 - 📋 Kafka (message streaming)
 - 📋 Paperless-ngx (document management)
 - 📋 n8n (workflow automation)
@@ -76,7 +82,7 @@ This document defines the categorization and organization structure for services
 - ✅ OpenWebUI - http://linuxserver.lan:8000 (Local LLM interface)
 - ✅ ChatGPT - https://chat.openai.com (External)
 **Planned**:
-- 📋 Claude Code UI (Siteboon)
+- 📋 Claude Code UI (Web interface)
 - 📋 Ollama (Local LLM runtime)
 - 📋 Stable Diffusion WebUI
 
@@ -84,13 +90,21 @@ This document defines the categorization and organization structure for services
 **Icon**: `fas fa-project-diagram`  
 **Description**: Diagramming and system design tools  
 **Currently Active**: 
-- ✅ Draw.io (Diagram editor)
+- ✅ Draw.io - https://drawio.ai-servicers.com (Diagram editor)
+- ✅ Infrastructure Diagrams - https://diagrams.nginx.ai-servicers.com (System views)
 **Planned**:
 - 📋 PlantUML Server
 - 📋 Excalidraw
 - 📋 Kroki (diagram rendering service)
 
-### 7. Monitoring & Analytics
+### 7. Session Management
+**Icon**: `fas fa-user-shield`
+**Description**: Authentication and session control
+**Currently Active**:
+- ✅ OAuth2 Session Info (Current session details)
+- ✅ Keycloak Logout (Single sign-out)
+
+### 8. Monitoring & Analytics
 **Icon**: `fas fa-chart-line`  
 **Description**: System monitoring and analytics platforms  
 **Currently Active**: None
@@ -99,19 +113,13 @@ This document defines the categorization and organization structure for services
 - 📋 Uptime Kuma (uptime monitoring)
 - 📋 Netdata (real-time monitoring)
 
-
-### 8. External Services
+### 9. External Services
 **Icon**: `fas fa-globe`  
 **Description**: External SaaS and third-party services  
 **Currently Active**:
 - ✅ Cloudflare - https://dash.cloudflare.com (DNS & CDN)
 - ✅ SendGrid - https://app.sendgrid.com (Email delivery)
-- ✅ GitHub - https://github.com (Code repositories)
-- ✅ ChatGPT - https://chat.openai.com (AI assistant)
-**Potential additions**:
-- Domain registrar panel
-- Cloud provider dashboards
-- External monitoring services
+**Note**: GitHub and ChatGPT listed in their respective categories (Development/AI Tools)
 
 ## Configuration Standards
 

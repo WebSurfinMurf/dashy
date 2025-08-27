@@ -1,0 +1,198 @@
+# Dashy Configuration for Administrators
+# Generated: 2025-08-24
+
+pageInfo:
+  title: AI-Servicers Admin Dashboard
+  description: Administrator Dashboard for ai-servicers.com
+  navLinks:
+    - title: Keycloak Admin
+      path: https://keycloak.ai-servicers.com
+    - title: Traefik Dashboard
+      path: https://traefik.ai-servicers.com:8083
+    - title: pgAdmin
+      path: http://linuxserver.lan:8901
+    - title: Portainer
+      path: http://linuxserver.lan:9000
+
+appConfig:
+  theme: nord-frost
+  layout: auto
+  iconSize: large
+  language: en
+  startingView: default
+  routingMode: hash
+  statusCheck: true
+  statusCheckInterval: 300
+  webSearch:
+    searchEngine: google
+    openingMethod: newtab
+  preventWriteToDisk: false
+  disableConfiguration: false
+  allowConfigEdit: true
+  enableFontAwesome: true
+  enableMaterialDesignIcons: true
+  hideComponents:
+    hideHeading: false
+    hideNav: false
+    hideSearch: false
+    hideSettings: false
+    hideFooter: false
+
+sections:
+  - name: Core Services
+    icon: fas fa-server
+    items:
+      - title: Nextcloud
+        description: File sharing and collaboration
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nextcloud.png
+        url: https://nextcloud.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        statusCheckUrl: https://nextcloud.ai-servicers.com/status.php
+        tags: [storage, collaboration]
+      
+      - title: Keycloak
+        description: Identity and Access Management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/keycloak.png
+        url: https://keycloak.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [auth, security]
+      
+      - title: Draw.io
+        description: Diagram Editor
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/drawio.png
+        url: https://drawio.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [tools, diagrams]
+
+  - name: Email Services
+    icon: fas fa-envelope
+    items:
+      - title: Nextcloud Mail
+        description: Webmail Client
+        icon: fas fa-envelope
+        url: https://nextcloud.ai-servicers.com/apps/mail
+        target: newtab
+        tags: [email, communication]
+      
+      - title: PostfixAdmin
+        description: Mail Administration
+        icon: fas fa-mail-bulk
+        url: https://postfixadmin.linuxserver.lan
+        target: newtab
+        statusCheck: true
+        tags: [admin, email]
+
+  - name: Infrastructure Management
+    icon: fas fa-tools
+    items:
+      - title: Traefik
+        description: Reverse Proxy Dashboard
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/traefik.png
+        url: https://traefik.ai-servicers.com:8083
+        target: newtab
+        statusCheck: true
+        tags: [proxy, networking]
+      
+      - title: Portainer
+        description: Docker Management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/portainer.png
+        url: http://linuxserver.lan:9000
+        target: newtab
+        statusCheck: true
+        tags: [docker, containers]
+      
+      - title: pgAdmin
+        description: PostgreSQL Management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/pgadmin.png
+        url: http://linuxserver.lan:8901
+        target: newtab
+        statusCheck: true
+        tags: [database, postgres]
+      
+      - title: Mongo Express
+        description: MongoDB Management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/mongodb.png
+        url: https://mongo.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        statusCheckUrl: https://mongo.ai-servicers.com/oauth2/ping
+        tags: [database, mongodb]
+      
+      - title: Redis Commander
+        description: Redis Management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/redis.png
+        url: https://redis.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        statusCheckUrl: https://redis.ai-servicers.com/oauth2/ping
+        tags: [database, redis, cache]
+
+  - name: Development Tools
+    icon: fas fa-code
+    items:
+      - title: Claude Code
+        description: AI Development Assistant
+        icon: fas fa-robot
+        url: http://localhost:3000
+        target: newtab
+        tags: [ai, development]
+      
+      - title: ShellHub
+        description: SSH Gateway
+        icon: fas fa-terminal
+        url: https://shellhub.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [ssh, remote]
+      
+      - title: Open WebUI
+        description: AI Chat Interface
+        icon: fas fa-comments
+        url: http://linuxserver.lan:8000
+        target: newtab
+        statusCheck: true
+        tags: [ai, chat]
+
+  - name: Documentation
+    icon: fas fa-book
+    items:
+      - title: Infrastructure Diagram
+        description: Current Infrastructure
+        icon: fas fa-project-diagram
+        url: https://diagrams.nginx.ai-servicers.com/infrastructure.drawio
+        target: newtab
+        tags: [docs, infrastructure]
+      
+      - title: Main Portal
+        description: NGINX Main Site
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nginx.png
+        url: https://nginx.ai-servicers.com
+        target: newtab
+        tags: [web, portal]
+
+  - name: External Services
+    icon: fas fa-cloud
+    items:
+      - title: Cloudflare
+        description: DNS & CDN Management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/cloudflare.png
+        url: https://dash.cloudflare.com
+        target: newtab
+        tags: [dns, cdn]
+      
+      - title: SendGrid
+        description: Email Relay Service
+        icon: fas fa-paper-plane
+        url: https://app.sendgrid.com
+        target: newtab
+        tags: [email, smtp]
+      
+      - title: GitHub
+        description: Code Repository
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/github.png
+        url: https://github.com
+        target: newtab
+        tags: [code, git]

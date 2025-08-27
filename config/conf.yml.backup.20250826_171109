@@ -7,7 +7,7 @@ pageInfo:
   description: Administrator Dashboard for ai-servicers.com
   navLinks:
     - title: Keycloak Admin
-      path: https://keycloak.ai-servicers.com/
+      path: https://keycloak.ai-servicers.com
     - title: Traefik Dashboard
       path: https://traefik.ai-servicers.com:8083
     - title: pgAdmin
@@ -79,10 +79,17 @@ sections:
         target: newtab
         tags: [dev, external, git]
       
+      - title: Claude Code
+        description: AI coding assistant
+        icon: fas fa-robot
+        url: http://localhost:3000
+        target: newtab
+        tags: [dev, ai, local]
+      
       - title: Nextcloud Talk
         description: Team communication
         icon: fas fa-comments
-        url: https://nextcloud.ai-servicers.com/index.php/apps/spreed/
+        url: https://nextcloud.ai-servicers.com/apps/spreed
         target: newtab
         tags: [dev, communication]
       
@@ -131,10 +138,17 @@ sections:
       - title: Keycloak Admin
         description: Identity management
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/keycloak.png
-        url: https://keycloak.ai-servicers.com/
+        url: https://keycloak.ai-servicers.com
         target: newtab
         statusCheck: true
         tags: [infra, auth, critical]
+      
+      - title: OAuth2 User Info
+        description: Session information
+        icon: fas fa-user-shield
+        url: https://dashy.ai-servicers.com/oauth2/userinfo
+        target: newtab
+        tags: [infra, auth]
 
   - name: Data & Integration Tools
     icon: fas fa-database
@@ -158,10 +172,18 @@ sections:
       - title: MongoDB Express
         description: MongoDB management
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/mongodb.png
-        url: https://mongodb.ai-servicers.com
+        url: https://mongo.ai-servicers.com
         target: newtab
         statusCheck: true
         tags: [database, mongodb]
+      
+      - title: phpMyAdmin
+        description: MySQL/MariaDB management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/phpmyadmin.png
+        url: http://linuxserver.lan:8903
+        target: newtab
+        statusCheck: true
+        tags: [database, mysql, internal]
 
   - name: AI Tools
     icon: fas fa-robot
@@ -187,7 +209,7 @@ sections:
       - title: Draw.io
         description: Diagram editor
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/drawio.png
-        url: https://drawio.ai-servicers.com
+        url: http://localhost:8085
         target: newtab
         statusCheck: true
         tags: [architecture, diagrams]
@@ -199,22 +221,31 @@ sections:
         target: newtab
         tags: [architecture, documentation]
 
-  - name: Session Management
-    icon: fas fa-user-shield
+  - name: Email Services
+    icon: fas fa-envelope
     items:
-      - title: OAuth2 Session Info
-        description: Current session details
-        icon: fas fa-info-circle
-        url: https://dashy.ai-servicers.com/oauth2/userinfo
+      - title: Roundcube
+        description: Traditional webmail
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/roundcube.png
+        url: https://mail.ai-servicers.com
         target: newtab
-        tags: [session, auth]
+        statusCheck: true
+        tags: [email, webmail]
       
-      - title: Keycloak Logout
-        description: Single sign-out
-        icon: fas fa-sign-out-alt
-        url: https://keycloak.ai-servicers.com/realms/master/protocol/openid-connect/logout?redirect_uri=https://dashy.ai-servicers.com
+      - title: Snappymail
+        description: Modern webmail client
+        icon: fas fa-envelope-open-text
+        url: https://snappy.ai-servicers.com
         target: newtab
-        tags: [session, logout]
+        statusCheck: true
+        tags: [email, webmail, modern]
+      
+      - title: Nextcloud Mail
+        description: Integrated mail client
+        icon: fas fa-inbox
+        url: https://nextcloud.ai-servicers.com/apps/mail
+        target: newtab
+        tags: [email, nextcloud]
 
   - name: External Services
     icon: fas fa-globe
@@ -232,3 +263,17 @@ sections:
         url: https://app.sendgrid.com
         target: newtab
         tags: [external, email, smtp]
+      
+      - title: GitHub
+        description: Code hosting
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/github.png
+        url: https://github.com
+        target: newtab
+        tags: [external, git, code]
+      
+      - title: ChatGPT
+        description: AI assistant
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openai.png
+        url: https://chat.openai.com
+        target: newtab
+        tags: [external, ai]

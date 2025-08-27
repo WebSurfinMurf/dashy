@@ -160,6 +160,78 @@ If Dashy stops working:
    ./deploy.sh
    ```
 
+## Scanning for New Applications
+
+When discovering and adding new services to Dashy, follow this procedure:
+
+### 1. Discovery Commands
+```bash
+# List all running Docker containers
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+# Check projects directory for deployed services
+ls -la /home/administrator/projects/
+
+# Check for services with web interfaces
+docker ps --format "{{.Names}}" | while read container; do
+  docker inspect $container | grep -E "VIRTUAL_HOST|traefik.http.routers" | head -5
+done
+
+# Check Docker networks for service groupings
+docker network ls
+```
+
+### 2. Categorization Guidelines
+Follow the structure defined in `DASHY-ORGANIZATION.md`:
+- **Core Services**: Essential platforms (Nextcloud, Web Portal)
+- **Development Tools**: Coding and remote access (Guacamole, GitHub, Claude Code)
+- **Infrastructure Management**: Admin tools (Portainer, Traefik, Keycloak)
+- **Data & Integration Tools**: Databases and management UIs
+- **AI Tools**: LLMs and AI assistants
+- **Architecture & Design**: Diagramming tools
+- **Email Services**: Webmail and email admin
+- **External Services**: Third-party SaaS
+
+### 3. Service Information to Collect
+For each discovered service:
+- Container name and status
+- Access URL (internal vs external)
+- Authentication method (SSO, basic auth, open)
+- Network placement
+- Icon source (Dashboard Icons CDN preferred)
+- Appropriate tags
+
+### 4. Update Process
+1. Backup configuration: `cp config/conf.yml config/conf.yml.backup.$(date +%Y%m%d_%H%M%S)`
+2. Edit `config/conf.yml` following the categorization
+3. Update `DASHY-ORGANIZATION.md` with new service status
+4. Update `SERVICES-INVENTORY.yml` for tracking
+5. **IMPORTANT**: Rebuild Dashy to apply changes:
+   ```bash
+   # Option 1: Rebuild inside container (faster)
+   docker exec dashy yarn build
+   
+   # Option 2: Restart container (also triggers rebuild)
+   docker restart dashy
+   ```
+6. Wait ~30 seconds for build to complete
+7. Clear browser cache (Shift+Refresh) 
+8. Verify at https://dashy.ai-servicers.com
+
+**Note**: Dashy reads config at build-time, not runtime. Changes require rebuild!
+
+### 5. Service Status Legend
+- ✅ **In Dashy**: Fully configured and accessible
+- 🚀 **Deployed**: Running but not added to Dashy
+- 📋 **Planned**: Not yet deployed
+
+### 6. Common Service URLs
+- **External**: `https://[service].ai-servicers.com`
+- **Internal**: `http://linuxserver.lan:[port]`
+- **OAuth Protected**: Check for OAuth2 proxy containers
+- **Local Only**: `http://localhost:[port]`
+
 ---
 *Created by Claude on 2025-08-24*  
 *Last tested and working: 2025-08-24*
+*Updated: 2025-08-26 - Added scanning instructions and reorganized services*
