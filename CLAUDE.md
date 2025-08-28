@@ -2,7 +2,18 @@
 
 ## Working Configuration
 **Date**: 2025-08-24  
-**Status**: ✅ WORKING - Dashy protected by Keycloak OAuth2 authentication
+**Status**: ✅ WORKING - Dashy protected by Keycloak OAuth2 authentication  
+**Last Updated**: 2025-08-28
+
+## Recent Configuration Updates
+
+### 2025-08-28 Changes
+- **Moved Guacamole** from Development Tools to Core Services
+- **Removed Rundeck** - Job automation platform (no longer needed)
+- **Updated pgAdmin URL** to external https://pgadmin.ai-servicers.com with SSO
+- **Added AWS Console** to External Services section
+- **Rebuilt and restarted** Dashy to apply all changes
+- **Verified** all services are operational and properly categorized
 
 ## Access URLs
 - **Dashboard**: https://dashy.ai-servicers.com
@@ -225,6 +236,45 @@ For each discovered service:
 - 🚀 **Deployed**: Running but not added to Dashy
 - 📋 **Planned**: Not yet deployed
 
+## Current Service Status (2025-08-28)
+
+### Core Services
+- ✅ Nextcloud - File sharing platform
+- ✅ Web Portal - Main landing page
+- ✅ Guacamole - Remote access gateway (moved from Development Tools)
+
+### Development Tools  
+- ✅ GitLab - Git repository and CI/CD
+- ✅ GitHub - External code repositories
+
+### Infrastructure Management
+- ✅ Portainer - Docker management with SSO
+- ✅ Traefik - Reverse proxy (internal access)
+- ✅ Postfixadmin - Email admin (internal only)
+
+### Data & Integration Tools
+- ✅ pgAdmin - PostgreSQL management (external URL with SSO)
+- ✅ Redis Commander - Redis management
+- ✅ MongoDB Express - MongoDB management
+
+### AI Tools
+- ✅ OpenWebUI - Local LLM interface
+- ✅ ChatGPT - OpenAI assistant
+
+### Architecture & Design
+- ✅ Draw.io - Diagram editor
+- ✅ Infrastructure Diagrams - System views
+
+### Security
+- ✅ Keycloak Admin - Identity management
+- ✅ OAuth2 Session Info - Current session
+- ✅ Keycloak Logout - Single sign-out
+
+### External Services
+- ✅ Cloudflare - DNS & CDN
+- ✅ SendGrid - Email delivery
+- ✅ AWS Console - Amazon Web Services (newly added)
+
 ### 6. Common Service URLs
 - **External**: `https://[service].ai-servicers.com`
 - **Internal**: `http://linuxserver.lan:[port]`
@@ -233,5 +283,5 @@ For each discovered service:
 
 ---
 *Created by Claude on 2025-08-24*  
-*Last tested and working: 2025-08-24*
-*Updated: 2025-08-26 - Added scanning instructions and reorganized services*
+*Last tested and working: 2025-08-28*
+*Updated: 2025-08-28 - Moved Guacamole to Core Services, removed Rundeck, updated pgAdmin to external URL, added AWS Console*

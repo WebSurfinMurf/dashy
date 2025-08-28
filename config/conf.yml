@@ -11,11 +11,9 @@ pageInfo:
     - title: Traefik Dashboard
       path: http://linuxserver.lan:8083
     - title: pgAdmin
-      path: http://linuxserver.lan:8901/browser/
+      path: https://pgadmin.ai-servicers.com
     - title: Portainer
       path: https://portainer.ai-servicers.com
-    - title: Rundeck
-      path: http://linuxserver.lan:4440
 
 appConfig:
   theme: nord-frost
@@ -60,6 +58,14 @@ sections:
         target: newtab
         statusCheck: true
         tags: [core, portal]
+      
+      - title: Guacamole
+        description: Remote access gateway with SSO
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/guacamole.png
+        url: https://guacamole.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [core, remote, sso]
 
   - name: Development Tools
     icon: fas fa-code
@@ -71,14 +77,6 @@ sections:
         target: newtab
         statusCheck: true
         tags: [dev, git, cicd]
-      
-      - title: Guacamole
-        description: Remote access gateway with SSO
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/guacamole.png
-        url: https://guacamole.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [dev, remote, sso]
       
       - title: GitHub
         description: Code repositories
@@ -106,14 +104,6 @@ sections:
         statusCheck: true
         tags: [infra, proxy, critical, internal]
       
-      - title: Rundeck
-        description: Job automation platform
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/rundeck.png
-        url: http://linuxserver.lan:4440
-        target: newtab
-        statusCheck: true
-        tags: [infra, automation, internal]
-      
       - title: Postfixadmin
         description: Email administration (internal only)
         icon: fas fa-mail-bulk
@@ -126,12 +116,12 @@ sections:
     icon: fas fa-database
     items:
       - title: pgAdmin
-        description: PostgreSQL management
+        description: PostgreSQL management with SSO
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/pgadmin.png
-        url: http://linuxserver.lan:8901/browser/
+        url: https://pgadmin.ai-servicers.com
         target: newtab
         statusCheck: true
-        tags: [database, postgres, internal]
+        tags: [database, postgres, sso]
       
       - title: Redis Commander
         description: Redis management
@@ -226,3 +216,10 @@ sections:
         url: https://app.sendgrid.com
         target: newtab
         tags: [external, email, smtp]
+      
+      - title: AWS Console
+        description: Amazon Web Services management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/aws.png
+        url: https://console.aws.amazon.com/
+        target: newtab
+        tags: [external, cloud, aws]
