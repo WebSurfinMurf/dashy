@@ -43,21 +43,13 @@ sections:
   - name: Core Services
     icon: fas fa-server
     items:
-      - title: Guacamole
-        description: Remote access gateway with SSO
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/guacamole.png
-        url: https://guacamole.ai-servicers.com
+      - title: Nextcloud
+        description: File sharing and collaboration
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nextcloud.png
+        url: https://nextcloud.ai-servicers.com
         target: newtab
         statusCheck: true
-        tags: [core, remote, sso]
-      
-      - title: OpenProject
-        description: Project management platform
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openproject.png
-        url: https://openproject.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [core, pm, collaboration]
+        tags: [core, storage, collaboration]
       
       - title: Web Portal
         description: Main landing page
@@ -67,13 +59,13 @@ sections:
         statusCheck: true
         tags: [core, portal]
       
-      - title: Nextcloud
-        description: File sharing and collaboration
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nextcloud.png
-        url: https://nextcloud.ai-servicers.com
+      - title: Guacamole
+        description: Remote access gateway with SSO
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/guacamole.png
+        url: https://guacamole.ai-servicers.com
         target: newtab
         statusCheck: true
-        tags: [core, storage, collaboration]
+        tags: [core, remote, sso]
 
   - name: Development Tools
     icon: fas fa-code
@@ -146,14 +138,6 @@ sections:
         target: newtab
         statusCheck: true
         tags: [database, mongodb]
-      
-      - title: MinIO
-        description: S3-compatible object storage
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/minio.png
-        url: https://minio.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [storage, s3, data]
 
   - name: AI Tools
     icon: fas fa-robot

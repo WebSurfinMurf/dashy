@@ -3,16 +3,21 @@
 ## Working Configuration
 **Date**: 2025-08-24  
 **Status**: ✅ WORKING - Dashy protected by Keycloak OAuth2 authentication  
-**Last Updated**: 2025-08-28
+**Last Updated**: 2025-09-01
 
 ## Recent Configuration Updates
+
+### 2025-09-01 Changes
+- **Added OpenProject** to Core Services - Project management platform
+- **Added MinIO** to Data & Integration Tools - S3-compatible object storage
+- **Reordered Core Services** for better workflow: Guacamole, OpenProject, Web Portal, Nextcloud
+- **Rebuilt and restarted** Dashy to apply all changes
 
 ### 2025-08-28 Changes
 - **Moved Guacamole** from Development Tools to Core Services
 - **Removed Rundeck** - Job automation platform (no longer needed)
 - **Updated pgAdmin URL** to external https://pgadmin.ai-servicers.com with SSO
 - **Added AWS Console** to External Services section
-- **Rebuilt and restarted** Dashy to apply all changes
 - **Verified** all services are operational and properly categorized
 
 ## Access URLs
@@ -236,12 +241,13 @@ For each discovered service:
 - 🚀 **Deployed**: Running but not added to Dashy
 - 📋 **Planned**: Not yet deployed
 
-## Current Service Status (2025-08-28)
+## Current Service Status (2025-09-01)
 
-### Core Services
-- ✅ Nextcloud - File sharing platform
+### Core Services (Ordered for workflow)
+- ✅ Guacamole - Remote access gateway with SSO
+- ✅ OpenProject - Project management platform (NEW)
 - ✅ Web Portal - Main landing page
-- ✅ Guacamole - Remote access gateway (moved from Development Tools)
+- ✅ Nextcloud - File sharing platform
 
 ### Development Tools  
 - ✅ GitLab - Git repository and CI/CD
@@ -256,6 +262,7 @@ For each discovered service:
 - ✅ pgAdmin - PostgreSQL management (external URL with SSO)
 - ✅ Redis Commander - Redis management
 - ✅ MongoDB Express - MongoDB management
+- ✅ MinIO - S3-compatible object storage (NEW)
 
 ### AI Tools
 - ✅ OpenWebUI - Local LLM interface
@@ -283,5 +290,5 @@ For each discovered service:
 
 ---
 *Created by Claude on 2025-08-24*  
-*Last tested and working: 2025-08-28*
-*Updated: 2025-08-28 - Moved Guacamole to Core Services, removed Rundeck, updated pgAdmin to external URL, added AWS Console*
+*Last tested and working: 2025-09-01*
+*Updated: 2025-09-01 - Added OpenProject and MinIO, reordered Core Services for workflow*
