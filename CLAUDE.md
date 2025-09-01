@@ -7,7 +7,15 @@
 
 ## Recent Configuration Updates
 
-### 2025-09-01 Changes
+### 2025-09-01 Changes (18:43 UTC)
+- **Reorganized sections** in new order: AI Tools, Development Tools, Security, External Services, Core Services, Data & Integration Tools, Infrastructure Management, Logging & Monitoring, Architecture & Design
+- **Added new Logging & Monitoring section** with three observability services:
+  - Loki - Log aggregation system with web UI (Keycloak SSO)
+  - Netdata - Real-time system metrics and monitoring (Keycloak SSO)
+  - Dozzle - Real-time container log viewer (Keycloak SSO)
+- **Rebuilt Dashy** to apply configuration changes
+
+### 2025-09-01 Changes (Earlier)
 - **Added OpenProject** to Core Services - Project management platform
 - **Added MinIO** to Data & Integration Tools - S3-compatible object storage
 - **Reordered Core Services** for better workflow: Guacamole, OpenProject, Web Portal, Nextcloud
@@ -241,46 +249,51 @@ For each discovered service:
 - 🚀 **Deployed**: Running but not added to Dashy
 - 📋 **Planned**: Not yet deployed
 
-## Current Service Status (2025-09-01)
+## Current Service Status (2025-09-01) - New Organization
 
-### Core Services (Ordered for workflow)
-- ✅ Guacamole - Remote access gateway with SSO
-- ✅ OpenProject - Project management platform (NEW)
-- ✅ Web Portal - Main landing page
-- ✅ Nextcloud - File sharing platform
-
-### Development Tools  
-- ✅ GitLab - Git repository and CI/CD
-- ✅ GitHub - External code repositories
-
-### Infrastructure Management
-- ✅ Portainer - Docker management with SSO
-- ✅ Traefik - Reverse proxy (internal access)
-- ✅ Postfixadmin - Email admin (internal only)
-
-### Data & Integration Tools
-- ✅ pgAdmin - PostgreSQL management (external URL with SSO)
-- ✅ Redis Commander - Redis management
-- ✅ MongoDB Express - MongoDB management
-- ✅ MinIO - S3-compatible object storage (NEW)
-
-### AI Tools
+### 1. AI Tools
 - ✅ OpenWebUI - Local LLM interface
 - ✅ ChatGPT - OpenAI assistant
 
-### Architecture & Design
-- ✅ Draw.io - Diagram editor
-- ✅ Infrastructure Diagrams - System views
+### 2. Development Tools  
+- ✅ GitLab - Git repository and CI/CD
+- ✅ GitHub - External code repositories
 
-### Security
+### 3. Security
 - ✅ Keycloak Admin - Identity management
 - ✅ OAuth2 Session Info - Current session
 - ✅ Keycloak Logout - Single sign-out
 
-### External Services
+### 4. External Services
 - ✅ Cloudflare - DNS & CDN
 - ✅ SendGrid - Email delivery
-- ✅ AWS Console - Amazon Web Services (newly added)
+- ✅ AWS Console - Amazon Web Services
+
+### 5. Core Services
+- ✅ Guacamole - Remote access gateway with SSO
+- ✅ OpenProject - Project management platform
+- ✅ Web Portal - Main landing page
+- ✅ Nextcloud - File sharing platform
+
+### 6. Data & Integration Tools
+- ✅ pgAdmin - PostgreSQL management (external URL with SSO)
+- ✅ Redis Commander - Redis management
+- ✅ MongoDB Express - MongoDB management
+- ✅ MinIO - S3-compatible object storage
+
+### 7. Infrastructure Management
+- ✅ Portainer - Docker management with SSO
+- ✅ Traefik - Reverse proxy (internal access)
+- ✅ Postfixadmin - Email admin (internal only)
+
+### 8. Logging & Monitoring (NEW SECTION)
+- ✅ Loki - Log aggregation with web UI (Keycloak SSO)
+- ✅ Netdata - Real-time metrics (Keycloak SSO)
+- ✅ Dozzle - Container logs viewer (Keycloak SSO)
+
+### 9. Architecture & Design
+- ✅ Draw.io - Diagram editor
+- ✅ Infrastructure Diagrams - System views
 
 ### 6. Common Service URLs
 - **External**: `https://[service].ai-servicers.com`

@@ -1,6 +1,6 @@
 # Dashy Configuration for AI-Servicers
-# Updated: 2025-08-26
-# Based on DASHY-ORGANIZATION.md structure
+# Updated: 2025-09-01
+# Reorganized with new section order and Logging section
 
 pageInfo:
   title: AI-Servicers Admin Dashboard
@@ -40,121 +40,6 @@ appConfig:
     hideFooter: false
 
 sections:
-  - name: Core Services
-    icon: fas fa-server
-    items:
-      - title: Guacamole
-        description: Remote access gateway with SSO
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/guacamole.png
-        url: https://guacamole.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [core, remote, sso]
-      
-      - title: OpenProject
-        description: Project management platform
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openproject.png
-        url: https://openproject.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [core, pm, collaboration]
-      
-      - title: Web Portal
-        description: Main landing page
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nginx.png
-        url: https://nginx.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [core, portal]
-      
-      - title: Nextcloud
-        description: File sharing and collaboration
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nextcloud.png
-        url: https://nextcloud.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [core, storage, collaboration]
-
-  - name: Development Tools
-    icon: fas fa-code
-    items:
-      - title: GitLab
-        description: Git repository and CI/CD
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/gitlab.png
-        url: https://gitlab.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [dev, git, cicd]
-      
-      - title: GitHub
-        description: Code repositories
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/github.png
-        url: https://github.com
-        target: newtab
-        tags: [dev, external, git]
-
-  - name: Infrastructure Management
-    icon: fas fa-tools
-    items:
-      - title: Portainer
-        description: Docker management (Keycloak SSO + local auth)
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/portainer.png
-        url: https://portainer.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [infra, docker, critical, sso]
-      
-      - title: Traefik Dashboard
-        description: Reverse proxy management (internal)
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/traefik.png
-        url: http://linuxserver.lan:8083
-        target: newtab
-        statusCheck: true
-        tags: [infra, proxy, critical, internal]
-      
-      - title: Postfixadmin
-        description: Email administration (internal only)
-        icon: fas fa-mail-bulk
-        url: https://postfixadmin.linuxserver.lan
-        target: newtab
-        statusCheck: false
-        tags: [infra, email, internal]
-
-  - name: Data & Integration Tools
-    icon: fas fa-database
-    items:
-      - title: pgAdmin
-        description: PostgreSQL management with SSO
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/pgadmin.png
-        url: https://pgadmin.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [database, postgres, sso]
-      
-      - title: Redis Commander
-        description: Redis management
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/redis.png
-        url: https://redis.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [database, redis, cache]
-      
-      - title: MongoDB Express
-        description: MongoDB management
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/mongodb.png
-        url: https://mongodb.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [database, mongodb]
-      
-      - title: MinIO
-        description: S3-compatible object storage
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/minio.png
-        url: https://minio.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [storage, s3, data]
-
   - name: AI Tools
     icon: fas fa-robot
     items:
@@ -173,23 +58,23 @@ sections:
         target: newtab
         tags: [ai, external]
 
-  - name: Architecture & Design
-    icon: fas fa-project-diagram
+  - name: Development Tools
+    icon: fas fa-code
     items:
-      - title: Draw.io
-        description: Diagram editor
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/drawio.png
-        url: https://drawio.ai-servicers.com
+      - title: GitLab
+        description: Git repository and CI/CD
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/gitlab.png
+        url: https://gitlab.ai-servicers.com
         target: newtab
         statusCheck: true
-        tags: [architecture, diagrams]
+        tags: [dev, git, cicd]
       
-      - title: Infrastructure Diagrams
-        description: System architecture views
-        icon: fas fa-sitemap
-        url: https://diagrams.nginx.ai-servicers.com
+      - title: GitHub
+        description: Code repositories
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/github.png
+        url: https://github.com
         target: newtab
-        tags: [architecture, documentation]
+        tags: [dev, external, git]
 
   - name: Security
     icon: fas fa-user-shield
@@ -239,3 +124,145 @@ sections:
         url: https://console.aws.amazon.com/
         target: newtab
         tags: [external, cloud, aws]
+
+  - name: Core Services
+    icon: fas fa-server
+    items:
+      - title: Guacamole
+        description: Remote access gateway with SSO
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/guacamole.png
+        url: https://guacamole.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [core, remote, sso]
+      
+      - title: OpenProject
+        description: Project management platform
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openproject.png
+        url: https://openproject.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [core, pm, collaboration]
+      
+      - title: Web Portal
+        description: Main landing page
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nginx.png
+        url: https://nginx.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [core, portal]
+      
+      - title: Nextcloud
+        description: File sharing and collaboration
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nextcloud.png
+        url: https://nextcloud.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [core, storage, collaboration]
+
+  - name: Data & Integration Tools
+    icon: fas fa-database
+    items:
+      - title: pgAdmin
+        description: PostgreSQL management with SSO
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/pgadmin.png
+        url: https://pgadmin.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [database, postgres, sso]
+      
+      - title: Redis Commander
+        description: Redis management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/redis.png
+        url: https://redis.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [database, redis, cache]
+      
+      - title: MongoDB Express
+        description: MongoDB management
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/mongodb.png
+        url: https://mongodb.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [database, mongodb]
+      
+      - title: MinIO
+        description: S3-compatible object storage
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/minio.png
+        url: https://minio.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [storage, s3, data]
+
+  - name: Infrastructure Management
+    icon: fas fa-tools
+    items:
+      - title: Portainer
+        description: Docker management (Keycloak SSO + local auth)
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/portainer.png
+        url: https://portainer.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [infra, docker, critical, sso]
+      
+      - title: Traefik Dashboard
+        description: Reverse proxy management (internal)
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/traefik.png
+        url: http://linuxserver.lan:8083
+        target: newtab
+        statusCheck: true
+        tags: [infra, proxy, critical, internal]
+      
+      - title: Postfixadmin
+        description: Email administration (internal only)
+        icon: fas fa-mail-bulk
+        url: https://postfixadmin.linuxserver.lan
+        target: newtab
+        statusCheck: false
+        tags: [infra, email, internal]
+
+  - name: Logging & Monitoring
+    icon: fas fa-chart-line
+    items:
+      - title: Loki
+        description: Log aggregation system with web UI
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/grafana-loki.png
+        url: https://loki.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [logging, observability, sso]
+      
+      - title: Netdata
+        description: Real-time system metrics and monitoring
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/netdata.png
+        url: https://netdata.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [monitoring, metrics, sso]
+      
+      - title: Dozzle
+        description: Real-time container log viewer
+        icon: fas fa-stream
+        url: https://dozzle.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [logging, docker, sso]
+
+  - name: Architecture & Design
+    icon: fas fa-project-diagram
+    items:
+      - title: Draw.io
+        description: Diagram editor
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/drawio.png
+        url: https://drawio.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [architecture, diagrams]
+      
+      - title: Infrastructure Diagrams
+        description: System architecture views
+        icon: fas fa-sitemap
+        url: https://diagrams.nginx.ai-servicers.com
+        target: newtab
+        tags: [architecture, documentation]
