@@ -76,6 +76,33 @@ sections:
         target: newtab
         tags: [dev, external, git]
 
+  - name: Infrastructure Management
+    icon: fas fa-tools
+    items:
+      - title: Portainer
+        description: Docker management (Keycloak SSO + local auth)
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/portainer.png
+        url: https://portainer.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [infra, docker, critical, sso]
+      
+      - title: Traefik Dashboard
+        description: Reverse proxy management (internal)
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/traefik.png
+        url: http://linuxserver.lan:8083
+        target: newtab
+        statusCheck: true
+        tags: [infra, proxy, critical, internal]
+      
+      - title: Postfixadmin
+        description: Email administration (internal only)
+        icon: fas fa-mail-bulk
+        url: https://postfixadmin.linuxserver.lan
+        target: newtab
+        statusCheck: false
+        tags: [infra, email, internal]
+  
   - name: Security
     icon: fas fa-user-shield
     items:
@@ -86,6 +113,14 @@ sections:
         target: newtab
         statusCheck: true
         tags: [security, auth, critical]
+      
+      - title: Infisical
+        description: Secret management platform
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/infisical.png
+        url: https://infisical.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [security, secrets, sso]
       
       - title: OAuth2 Session Info
         description: Current session details
@@ -195,36 +230,25 @@ sections:
         statusCheck: true
         tags: [storage, s3, data]
 
-  - name: Infrastructure Management
-    icon: fas fa-tools
-    items:
-      - title: Portainer
-        description: Docker management (Keycloak SSO + local auth)
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/portainer.png
-        url: https://portainer.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [infra, docker, critical, sso]
-      
-      - title: Traefik Dashboard
-        description: Reverse proxy management (internal)
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/traefik.png
-        url: http://linuxserver.lan:8083
-        target: newtab
-        statusCheck: true
-        tags: [infra, proxy, critical, internal]
-      
-      - title: Postfixadmin
-        description: Email administration (internal only)
-        icon: fas fa-mail-bulk
-        url: https://postfixadmin.linuxserver.lan
-        target: newtab
-        statusCheck: false
-        tags: [infra, email, internal]
-
   - name: Logging & Monitoring
     icon: fas fa-chart-line
     items:
+      - title: Dozzle
+        description: Real-time container log viewer
+        icon: fas fa-stream
+        url: https://dozzle.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [logging, docker, sso]
+      
+      - title: Grafana
+        description: Metrics and logs visualization dashboard
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/grafana.png
+        url: https://grafana.ai-servicers.com
+        target: newtab
+        statusCheck: true
+        tags: [monitoring, metrics, logs, sso]
+      
       - title: Loki
         description: Log aggregation system with web UI
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/grafana-loki.png
@@ -240,14 +264,6 @@ sections:
         target: newtab
         statusCheck: true
         tags: [monitoring, metrics, sso]
-      
-      - title: Dozzle
-        description: Real-time container log viewer
-        icon: fas fa-stream
-        url: https://dozzle.ai-servicers.com
-        target: newtab
-        statusCheck: true
-        tags: [logging, docker, sso]
 
   - name: Architecture & Design
     icon: fas fa-project-diagram

@@ -7,6 +7,15 @@
 
 ## Recent Configuration Updates
 
+### 2025-09-02 Changes (00:42 UTC)
+- **Updated Logging & Monitoring section order** per user request:
+  1. Dozzle (first) - Real-time container log viewer
+  2. Grafana (second) - Metrics and logs visualization dashboard 
+  3. Loki (third) - Log aggregation system with web UI
+  4. Netdata (fourth) - Real-time system metrics and monitoring
+- **Added Grafana** to the Logging & Monitoring section (was not included before)
+- **Rebuilt and restarted Dashy** to apply configuration changes
+
 ### 2025-09-01 Changes (18:43 UTC)
 - **Reorganized sections** in new order: AI Tools, Development Tools, Security, External Services, Core Services, Data & Integration Tools, Infrastructure Management, Logging & Monitoring, Architecture & Design
 - **Added new Logging & Monitoring section** with three observability services:
@@ -287,9 +296,10 @@ For each discovered service:
 - ✅ Postfixadmin - Email admin (internal only)
 
 ### 8. Logging & Monitoring (NEW SECTION)
-- ✅ Loki - Log aggregation with web UI (Keycloak SSO)
-- ✅ Netdata - Real-time metrics (Keycloak SSO)
-- ✅ Dozzle - Container logs viewer (Keycloak SSO)
+- ✅ Dozzle - Real-time container log viewer (Keycloak SSO) - **FIRST**
+- ✅ Grafana - Metrics and logs visualization dashboard (Keycloak SSO) - **SECOND**
+- ✅ Loki - Log aggregation with web UI (Keycloak SSO) - **THIRD**
+- ✅ Netdata - Real-time metrics (Keycloak SSO) - **FOURTH**
 
 ### 9. Architecture & Design
 - ✅ Draw.io - Diagram editor
