@@ -7,7 +7,26 @@
 
 ## Recent Configuration Updates
 
-### 2025-09-05 Changes
+### 2025-09-05 Changes (Latest)
+- **Moved Playwright** from Development Tools to Automate & Integ category
+  - Better categorization as it's primarily for browser automation
+  - Now grouped with n8n for all automation tools
+- **Reorganized section order** for better logical flow:
+  1. AI Tools
+  2. Development Tools (now contains GitLab and GitHub only)
+  3. Automate & Integ (contains n8n and Playwright)
+  4. External Services (moved after Automate & Integ)
+  5. Infrastructure Management
+  6. Security
+  7. Core Services
+  8. Data Tools (renamed from "Data & Integration Tools")
+  9. Logging & Monitoring
+  10. Architecture & Design
+- **Created "Automate & Integ" category** for automation and integration services
+- **Moved n8n** from Development Tools to new Automate & Integ category
+- **Renamed** "Data & Integration Tools" to "Data Tools"
+
+### 2025-09-05 Changes (Earlier)
 - **Replaced Infisical with OpenBao** in Security section
   - OpenBao is a HashiCorp Vault fork for secrets management
   - URL: https://openbao.ai-servicers.com/ui/vault/auth?with=oidc (direct OIDC login)
@@ -274,6 +293,7 @@ For each discovered service:
 ### 2. Development Tools  
 - ✅ GitLab - Git repository and CI/CD
 - ✅ GitHub - External code repositories
+- ✅ Playwright - Browser automation & testing
 
 ### 3. Security
 - ✅ Keycloak Admin - Identity management
