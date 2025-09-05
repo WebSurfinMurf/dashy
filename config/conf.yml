@@ -114,12 +114,12 @@ sections:
         statusCheck: true
         tags: [security, auth, critical]
       
-      - title: Infisical
-        description: Secret management platform
-        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/infisical.png
-        url: https://infisical.ai-servicers.com
+      - title: OpenBao
+        description: Secrets management (Vault fork)
+        icon: fas fa-user-secret
+        url: https://openbao.ai-servicers.com/ui/vault/auth?with=oidc
         target: newtab
-        statusCheck: true
+        statusCheck: false
         tags: [security, secrets, sso]
       
       - title: OAuth2 Session Info

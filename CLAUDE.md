@@ -3,9 +3,16 @@
 ## Working Configuration
 **Date**: 2025-08-24  
 **Status**: ✅ WORKING - Dashy protected by Keycloak OAuth2 authentication  
-**Last Updated**: 2025-09-01
+**Last Updated**: 2025-09-05
 
 ## Recent Configuration Updates
+
+### 2025-09-05 Changes
+- **Replaced Infisical with OpenBao** in Security section
+  - OpenBao is a HashiCorp Vault fork for secrets management
+  - URL: https://openbao.ai-servicers.com/ui/vault/auth?with=oidc (direct OIDC login)
+  - Icon: fas fa-user-secret (secret agent icon)
+  - Tags: security, secrets, sso
 
 ### 2025-09-02 Changes (00:42 UTC)
 - **Updated Logging & Monitoring section order** per user request:
