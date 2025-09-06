@@ -55,6 +55,16 @@ sections:
     tags:
     - ai
     - external
+  - title: Litellm UI
+    description: AI Gateway Admin Dashboard
+    icon: fas fa-layer-group
+    url: https://litellm.ai-servicers.com/ui/
+    target: newtab
+    statusCheck: true
+    tags:
+    - ai
+    - llm
+    - gateway
 - name: Development Tools
   icon: fas fa-code
   items:
@@ -77,6 +87,16 @@ sections:
     - dev
     - external
     - git
+  - title: Litellm API
+    description: Unified LLM API Gateway
+    icon: fas fa-network-wired
+    url: https://litellm.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - dev
+    - api
+    - llm
 - name: Automate & Integ
   icon: fas fa-cogs
   items:
@@ -130,6 +150,15 @@ sections:
     - external
     - cloud
     - aws
+  - title: Discord Channel
+    description: Community Discord server
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/discord.png
+    url: https://discord.gg/GwpykJVg
+    target: newtab
+    tags:
+    - external
+    - community
+    - chat
 - name: Infrastructure Management
   icon: fas fa-tools
   items:
