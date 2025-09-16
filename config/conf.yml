@@ -251,7 +251,7 @@ sections:
   - title: OpenProject
     description: Project management platform
     icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openproject.png
-    url: https://openproject.ai-servicers.com
+    url: https://openproject.ai-servicers.com/projects/platform-services/boards/
     target: newtab
     statusCheck: true
     tags:
