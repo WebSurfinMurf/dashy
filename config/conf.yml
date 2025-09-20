@@ -60,7 +60,7 @@ sections:
     icon: fas fa-layer-group
     url: https://litellm.ai-servicers.com/ui/
     target: newtab
-    statusCheck: true
+    statusCheck: false
     tags:
     - ai
     - llm
@@ -92,7 +92,7 @@ sections:
     icon: fas fa-network-wired
     url: https://litellm.ai-servicers.com
     target: newtab
-    statusCheck: true
+    statusCheck: false
     tags:
     - dev
     - api
