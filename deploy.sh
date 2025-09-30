@@ -85,6 +85,11 @@ docker run -d \
   --label "traefik.http.services.dashy.loadbalancer.server.port=4180" \
   quay.io/oauth2-proxy/oauth2-proxy:latest
 
+# Connect OAuth2 proxy to additional networks
+echo -e "${YELLOW}Connecting OAuth2 proxy to keycloak-net...${NC}"
+docker network create keycloak-net 2>/dev/null || echo "Network keycloak-net already exists"
+docker network connect keycloak-net dashy-auth-proxy 2>/dev/null || true
+
 echo -e "${YELLOW}Waiting for containers to start...${NC}"
 sleep 10
 
