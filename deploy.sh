@@ -46,14 +46,14 @@ fi
 
 # Create network if it doesn't exist
 echo -e "${YELLOW}Ensuring network exists...${NC}"
-docker network create traefik-proxy 2>/dev/null || echo "Network traefik-proxy already exists"
+docker network create traefik-net 2>/dev/null || echo "Network traefik-net already exists"
 
 # Deploy Dashy container (internal only, no Traefik labels)
 echo -e "${YELLOW}Deploying Dashy container...${NC}"
 docker run -d \
   --name dashy \
   --restart unless-stopped \
-  --network traefik-proxy \
+  --network traefik-net \
   -v /home/administrator/projects/dashy/config/conf.yml:/app/user-data/conf.yml \
   -v /home/administrator/projects/dashy/data:/app/user-data \
   --health-cmd "node /app/services/healthcheck || exit 1" \
@@ -64,20 +64,20 @@ docker run -d \
 
 # Ensure dashy is resolvable by name on the network
 echo -e "${YELLOW}Configuring network alias...${NC}"
-docker network disconnect traefik-proxy dashy 2>/dev/null || true
-docker network connect --alias dashy traefik-proxy dashy
+docker network disconnect traefik-net dashy 2>/dev/null || true
+docker network connect --alias dashy traefik-net dashy
 
 # Deploy OAuth2 Proxy with Traefik labels
 echo -e "${YELLOW}Deploying OAuth2 Proxy...${NC}"
 docker run -d \
   --name dashy-auth-proxy \
   --restart unless-stopped \
-  --network traefik-proxy \
+  --network traefik-net \
   --env-file /home/administrator/projects/secrets/dashy.env \
   -e OAUTH2_PROXY_UPSTREAMS=http://dashy:8080/ \
   -e OAUTH2_PROXY_PASS_HOST_HEADER=false \
   --label "traefik.enable=true" \
-  --label "traefik.docker.network=traefik-proxy" \
+  --label "traefik.docker.network=traefik-net" \
   --label "traefik.http.routers.dashy.rule=Host(\`dashy.ai-servicers.com\`)" \
   --label "traefik.http.routers.dashy.entrypoints=websecure" \
   --label "traefik.http.routers.dashy.tls=true" \
@@ -111,7 +111,7 @@ echo ""
 
 # Test internal connectivity
 echo -e "${YELLOW}Testing internal connectivity...${NC}"
-if docker run --rm --network traefik-proxy alpine ping -c 1 dashy >/dev/null 2>&1; then
+if docker run --rm --network traefik-net alpine ping -c 1 dashy >/dev/null 2>&1; then
     echo -e "${GREEN}✓ Network alias working${NC}"
 else
     echo -e "${RED}✗ Network alias not working${NC}"
