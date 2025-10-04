@@ -220,16 +220,16 @@ sections:
     - security
     - auth
     - critical
-  - title: OpenBao
-    description: Secrets management (Vault fork)
-    icon: fas fa-user-secret
-    url: https://openbao.ai-servicers.com/ui/vault/auth?with=oidc
+  - title: Bitwarden
+    description: Password manager and secrets vault
+    icon: si-bitwarden
+    url: https://bitwarden.ai-servicers.com
     target: newtab
-    statusCheck: false
+    statusCheck: true
     tags:
     - security
-    - secrets
-    - sso
+    - passwords
+    - vault
   - title: OAuth2 Session Info
     description: Current session details
     icon: fas fa-info-circle
