@@ -1,0 +1,49 @@
+pageInfo:
+  title: Agentic AI
+  description: AI assistants and platforms
+sections:
+- name: OpenAI
+  icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openai.png
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: ChatGPT
+    description: OpenAI's conversational AI assistant
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openai.png
+    url: https://chatgpt.com/
+    target: newtab
+    tags:
+    - ai
+    - chat
+    - openai
+- name: Anthropic
+  icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/anthropic.png
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Claude
+    description: Anthropic's AI assistant
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/anthropic.png
+    url: https://claude.ai/
+    target: newtab
+    tags:
+    - ai
+    - chat
+    - anthropic
+- name: Google
+  icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/google.png
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Gemini
+    description: Google's AI assistant
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/google.png
+    url: https://gemini.google.com/
+    target: newtab
+    tags:
+    - ai
+    - chat
+    - google

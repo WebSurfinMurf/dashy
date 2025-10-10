@@ -1,0 +1,39 @@
+pageInfo:
+  title: AI Chat Services
+  description: Quick access to AI chat platforms
+sections:
+- name: AI Chat Platforms
+  icon: fas fa-comments
+  displayData:
+    sortBy: default
+    rows: 1
+    cols: 3
+    itemSize: large
+  items:
+  - title: ChatGPT
+    description: OpenAI's conversational AI assistant
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openai.png
+    url: https://chatgpt.com/
+    target: newtab
+    tags:
+    - ai
+    - chat
+    - openai
+  - title: Claude
+    description: Anthropic's AI assistant
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/anthropic.png
+    url: https://claude.ai/
+    target: newtab
+    tags:
+    - ai
+    - chat
+    - anthropic
+  - title: Gemini
+    description: Google's AI assistant
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/google.png
+    url: https://gemini.google.com/
+    target: newtab
+    tags:
+    - ai
+    - chat
+    - google

@@ -1,11 +1,33 @@
 # Dashy Dashboard with Keycloak OAuth2 - Lessons Learned
 
 ## Working Configuration
-**Date**: 2025-08-24  
-**Status**: ✅ WORKING - Dashy protected by Keycloak OAuth2 authentication  
-**Last Updated**: 2025-09-05
+**Date**: 2025-08-24
+**Status**: ✅ WORKING - Dashy protected by Keycloak OAuth2 authentication
+**Last Updated**: 2025-10-10
 
 ## Recent Configuration Updates
+
+### 2025-10-10 - Multi-Page Configuration
+- **Converted to multi-page layout** - Dashboard now uses multiple pages
+- **Created two pages**:
+  1. **Home** (infra.yml) - All existing services and admin tools
+  2. **Agentic AI** (ai-chat.yml) - AI assistants organized by provider
+- **Agentic AI page structure**:
+  - Three sections organized by provider (OpenAI, Anthropic, Google)
+  - Ready for expansion with more AI services per provider
+  - Large item size for clean presentation
+- **Configuration structure**:
+  - `conf.yml` - Main config with appConfig, pages list, AND sections (required!)
+  - `data/infra.yml` - Home tab content (infrastructure services)
+  - `data/ai-chat.yml` - Agentic AI tab content (organized by provider)
+- **Critical fix**: Main conf.yml MUST have `sections` defined, not just `pages` array
+  - Without sections in conf.yml, landing page shows "no data configured"
+  - Sections in conf.yml define the default/landing page content
+  - Sub-pages (infra.yml, ai-chat.yml) define additional tab content
+- **Important**: Page YAML files must be in `data/` directory (mounted to `/app/user-data/` in container)
+- **Removed navLinks** from page files (was causing extra tabs to appear as navigation items)
+- **Researched solution**: Used Dashy official documentation to understand multi-page requirements
+- **Rebuilt and restarted** Dashy successfully
 
 ### 2025-09-05 Changes (Latest)
 - **Moved Playwright** from Development Tools to Automate & Integ category
@@ -198,12 +220,37 @@ docker restart dashy-auth-proxy
 ```
 /home/administrator/projects/dashy/
 ├── config/
-│   └── conf.yml           # Dashy configuration
-├── data/                  # Dashy persistent data
+│   └── conf.yml           # Main config (appConfig + pages + sections)
+├── data/                  # Dashy persistent data + page files
+│   ├── infra.yml          # Home tab content (all admin services)
+│   └── ai-chat.yml        # Agentic AI tab (organized by provider)
 ├── deploy.sh             # Main deployment script
 ├── setup-keycloak.sh     # One-time Keycloak setup
 └── CLAUDE.md             # This documentation
 ```
+
+## Multi-Page Configuration Notes
+
+**Critical Understanding:**
+1. `conf.yml` defines:
+   - `appConfig` - Global settings (theme, layout, etc.)
+   - `pages` - Array of additional tabs/pages
+   - `sections` - **REQUIRED** - Defines the default/landing page content
+
+2. Sub-page files (infra.yml, ai-chat.yml) define:
+   - `pageInfo` - Page title and description only
+   - `sections` - Content for that specific tab
+   - **Cannot include**: `appConfig` or `pages` (inherited from main conf.yml)
+
+3. File locations:
+   - `conf.yml` must be in `config/` (bind mounted to `/app/user-data/conf.yml`)
+   - Sub-page YML files must be in `data/` (mounted to `/app/user-data/`)
+
+4. After adding/modifying pages:
+   - Rebuild required: `docker exec dashy yarn build`
+   - Restart container: `docker restart dashy`
+
+**Common Issue**: If landing page shows "no data configured", ensure `sections` are defined directly in `conf.yml`, not just referenced via sub-pages.
 
 ## Recovery Procedure
 If Dashy stops working:
@@ -218,6 +265,37 @@ If Dashy stops working:
    docker rm dashy dashy-auth-proxy
    ./deploy.sh
    ```
+
+## Adding New Items to Agentic AI Page
+
+To add more AI services to the Agentic AI page:
+
+### Edit the ai-chat.yml file
+```bash
+vi /home/administrator/projects/dashy/data/ai-chat.yml
+```
+
+### Add items to appropriate section
+```yaml
+- name: OpenAI
+  items:
+  - title: ChatGPT
+    # ... existing item ...
+  - title: New OpenAI Service  # Add here
+    description: Description of new service
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openai.png
+    url: https://service.url
+    target: newtab
+    tags:
+    - ai
+    - openai
+```
+
+### Rebuild and restart
+```bash
+docker exec dashy yarn build
+docker restart dashy
+```
 
 ## Scanning for New Applications
 

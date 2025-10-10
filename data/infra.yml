@@ -1,31 +1,6 @@
-pages:
-- name: Home
-  path: infra.yml
-- name: Agentic AI
-  path: ai-chat.yml
-appConfig:
-  theme: nord-frost
-  layout: auto
-  iconSize: large
-  language: en
-  startingView: default
-  routingMode: hash
-  statusCheck: true
-  statusCheckInterval: 300
-  webSearch:
-    searchEngine: google
-    openingMethod: newtab
-  preventWriteToDisk: false
-  disableConfiguration: false
-  allowConfigEdit: true
-  enableFontAwesome: true
-  enableMaterialDesignIcons: true
-  hideComponents:
-    hideHeading: false
-    hideNav: false
-    hideSearch: false
-    hideSettings: false
-    hideFooter: false
+pageInfo:
+  title: AI-Servicers Admin Dashboard
+  description: Administrator Dashboard for ai-servicers.com
 sections:
 - name: AI Tools
   icon: fas fa-robot
