@@ -17,6 +17,25 @@ sections:
     - ai
     - chat
     - openai
+  - title: OpenAI Platform
+    description: OpenAI API and developer console
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openai.png
+    url: https://platform.openai.com/
+    target: newtab
+    tags:
+    - ai
+    - api
+    - openai
+    - platform
+  - title: OpenAI Status
+    description: OpenAI service status page
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/openai.png
+    url: https://status.openai.com/
+    target: newtab
+    tags:
+    - status
+    - monitoring
+    - openai
 - name: Anthropic
   icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/anthropic.png
   displayData:
@@ -32,12 +51,39 @@ sections:
     - ai
     - chat
     - anthropic
+  - title: Anthropic Console
+    description: Anthropic API and developer console
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/anthropic.png
+    url: https://console.anthropic.com/
+    target: newtab
+    tags:
+    - ai
+    - api
+    - anthropic
+    - console
+  - title: Claude Status
+    description: Claude service status page
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/anthropic.png
+    url: https://status.claude.com/
+    target: newtab
+    tags:
+    - status
+    - monitoring
+    - anthropic
 - name: Google
   icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/google.png
   displayData:
     sortBy: default
     itemSize: large
   items:
+  - title: Google
+    description: Google search and services
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/google.png
+    url: https://google.com/
+    target: newtab
+    tags:
+    - search
+    - google
   - title: Gemini
     description: Google's AI assistant
     icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/google.png
@@ -47,3 +93,157 @@ sections:
     - ai
     - chat
     - google
+  - title: AI Studio
+    description: Google AI Studio for prompts
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/google.png
+    url: https://aistudio.google.com/prompts/new_chat
+    target: newtab
+    tags:
+    - ai
+    - studio
+    - google
+- name: Other
+  icon: fas fa-robot
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Perplexity
+    description: AI-powered answer engine
+    icon: fas fa-search
+    url: https://www.perplexity.ai/
+    target: newtab
+    tags:
+    - ai
+    - search
+  - title: Mistral
+    description: Mistral AI chat interface
+    icon: fas fa-comments
+    url: https://chat.mistral.ai/chat
+    target: newtab
+    tags:
+    - ai
+    - chat
+  - title: Meta AI
+    description: Meta's AI assistant
+    icon: fab fa-meta
+    url: https://www.meta.ai/
+    target: newtab
+    tags:
+    - ai
+    - meta
+- name: Lang
+  icon: fas fa-code-branch
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: LangChain
+    description: Framework for LLM applications
+    icon: fas fa-link
+    url: https://www.langchain.com/
+    target: newtab
+    tags:
+    - framework
+    - langchain
+  - title: LangFlow
+    description: Visual LangChain builder
+    icon: fas fa-project-diagram
+    url: https://www.langflow.org/
+    target: newtab
+    tags:
+    - framework
+    - langflow
+    - visual
+- name: Source
+  icon: fas fa-box
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Chainguard
+    description: Secure container images
+    icon: fas fa-shield-alt
+    url: https://www.chainguard.dev/
+    target: newtab
+    tags:
+    - containers
+    - security
+  - title: Docker Hub
+    description: Public container registry
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/docker.png
+    url: https://hub.docker.com/
+    target: newtab
+    tags:
+    - containers
+    - registry
+  - title: Microsoft Container Registry
+    description: MCR public container images
+    icon: fab fa-microsoft
+    url: https://mcr.microsoft.com/en-us/
+    target: newtab
+    tags:
+    - containers
+    - registry
+    - microsoft
+- name: Models
+  icon: fas fa-brain
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Ollama
+    description: Run local LLM models
+    icon: fas fa-server
+    url: https://ollama.com/
+    target: newtab
+    tags:
+    - models
+    - local
+  - title: Hugging Face
+    description: AI model hub and community
+    icon: fas fa-smile
+    url: https://huggingface.co/
+    target: newtab
+    tags:
+    - models
+    - community
+- name: Cloud
+  icon: fas fa-cloud
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: AWS Console
+    description: Amazon Web Services cloud platform
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/aws.png
+    url: https://aws.amazon.com/
+    target: newtab
+    tags:
+    - cloud
+    - aws
+    - amazon
+  - title: Azure Portal
+    description: Microsoft Azure cloud platform
+    icon: fab fa-microsoft
+    url: https://portal.azure.com/#home
+    target: newtab
+    tags:
+    - cloud
+    - azure
+    - microsoft
+- name: Info
+  icon: fas fa-info-circle
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: TLDR AI Newsletter
+    description: Daily AI news and updates
+    icon: fas fa-newspaper
+    url: https://tldr.tech/api/latest/ai
+    target: newtab
+    tags:
+    - news
+    - newsletter
+    - ai

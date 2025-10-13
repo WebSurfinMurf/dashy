@@ -1,0 +1,64 @@
+pageInfo:
+  title: Shopping
+  description: Online shopping sites
+sections:
+- name: Stores
+  icon: fas fa-shopping-cart
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Amazon
+    description: Online shopping marketplace
+    icon: fab fa-amazon
+    url: https://www.amazon.com/
+    target: newtab
+    tags:
+    - shopping
+    - retail
+  - title: Etsy - Zulu Seeds
+    description: Specialty seed shop
+    icon: fas fa-seedling
+    url: https://www.etsy.com/shop/ZuluSeeds?ref=l2-about-shopname
+    target: newtab
+    tags:
+    - etsy
+    - seeds
+  - title: Fabula Coffee
+    description: Specialty coffee roaster
+    icon: fas fa-coffee
+    url: https://fabulacoffee.com/
+    target: newtab
+    tags:
+    - coffee
+    - specialty
+- name: Info
+  icon: fas fa-info-circle
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Feedly
+    description: RSS feed aggregator
+    icon: fas fa-rss-square
+    url: https://feedly.com/i/my
+    target: newtab
+    tags:
+    - rss
+    - feed
+  - title: RationalWiki
+    description: Community wiki for skepticism
+    icon: fas fa-book
+    url: https://rationalwiki.org/wiki/Main_Page
+    target: newtab
+    tags:
+    - wiki
+    - reference
+  - title: Weather Underground
+    description: Local weather forecast
+    icon: fas fa-cloud-sun
+    url: https://www.wunderground.com/weather/us/nj/new-providence/07974
+    target: newtab
+    tags:
+    - weather
+    - local

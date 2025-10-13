@@ -1,0 +1,26 @@
+pageInfo:
+  title: Network
+  description: Network devices and infrastructure
+sections:
+- name: Devices
+  icon: fas fa-network-wired
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Access Point
+    description: Wireless access point management
+    icon: fas fa-wifi
+    url: http://192.168.1.5/
+    target: newtab
+    tags:
+    - network
+    - wifi
+  - title: Security Camera
+    description: Network security camera
+    icon: fas fa-video
+    url: http://192.168.1.31/
+    target: newtab
+    tags:
+    - security
+    - camera

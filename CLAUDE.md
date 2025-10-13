@@ -7,19 +7,32 @@
 
 ## Recent Configuration Updates
 
-### 2025-10-10 - Multi-Page Configuration
+### 2025-10-10 - Multi-Page Configuration, CSV Import, Reorganization & Refinements
+
+#### New Links Addition (Late Evening - Part 2)
+- **Added 9 new links** across multiple tabs:
+  - **Video tab, Fav group**: Added YouTube as first item
+  - **Agentic AI, OpenAI group**: Added OpenAI Platform (developer console)
+  - **Agentic AI, Anthropic group**: Added Anthropic Console (developer console)
+  - **Agentic AI, Google group**: Added Google.com (main search)
+  - **Agentic AI, Cloud group**: Added AWS Console
+  - **Agentic AI, new Info group**: Created group and added TLDR AI Newsletter
+  - **Finance, Trading group**: Added TradingView (charting) and Coinbase (crypto)
+  - **Finance, Info group**: Added Strategic Forecast Learning
+- **Agentic AI expanded to 9 groups** (added Info group for news/newsletters)
+- **Finance Trading group expanded** from 2 to 4 services (added TradingView, Coinbase)
+- **Total services now 100+** across all pages
+- **Rebuilt and restarted** Dashy successfully
+
+#### Multi-Page Setup (Morning)
 - **Converted to multi-page layout** - Dashboard now uses multiple pages
 - **Created two pages**:
   1. **Home** (infra.yml) - All existing services and admin tools
-  2. **Agentic AI** (ai-chat.yml) - AI assistants organized by provider
-- **Agentic AI page structure**:
-  - Three sections organized by provider (OpenAI, Anthropic, Google)
-  - Ready for expansion with more AI services per provider
-  - Large item size for clean presentation
+  2. **Agentic AI** (ai-chat.yml) - AI assistants and resources organized by category
 - **Configuration structure**:
   - `conf.yml` - Main config with appConfig, pages list, AND sections (required!)
   - `data/infra.yml` - Home tab content (infrastructure services)
-  - `data/ai-chat.yml` - Agentic AI tab content (organized by provider)
+  - `data/ai-chat.yml` - Agentic AI tab content (organized by provider/category)
 - **Critical fix**: Main conf.yml MUST have `sections` defined, not just `pages` array
   - Without sections in conf.yml, landing page shows "no data configured"
   - Sections in conf.yml define the default/landing page content
@@ -28,6 +41,44 @@
 - **Removed navLinks** from page files (was causing extra tabs to appear as navigation items)
 - **Researched solution**: Used Dashy official documentation to understand multi-page requirements
 - **Rebuilt and restarted** Dashy successfully
+
+#### Agentic AI Page Expansion (Afternoon - Part 1)
+- **Expanded from 3 groups to 8 groups** with comprehensive AI ecosystem coverage:
+  1. **OpenAI** - ChatGPT + OpenAI Status page
+  2. **Anthropic** - Claude + Claude Status page
+  3. **Google** - Gemini + AI Studio
+  4. **Other** - Perplexity, Mistral, Meta AI
+  5. **Lang** - LangChain, LangFlow frameworks
+  6. **Source** - Chainguard, Docker Hub, Microsoft Container Registry
+  7. **Models** - Ollama, Hugging Face
+  8. **Cloud** - Azure Portal
+- **Total AI resources**: 17 services across 8 categories
+- **All items use large format** for clean presentation
+- **Icons**: Mix of Dashboard Icons CDN and Font Awesome icons
+
+#### CSV Import & Major Reorganization (Evening)
+- **Imported 59 personal sites** from `/mnt/shared/dashy.csv`
+- **Created 5 new pages**: Finance, Personal, Shopping, Video, Work
+- **Consolidated and reorganized** for better logical grouping:
+  - Moved Interactive Brokers from separate Trading tab to Finance/Trading group
+  - Moved Fidelity from Finance/Accounts to Finance/Trading group
+  - Merged Network tab into Personal tab as Network group
+  - Split News tab content:
+    - Finance news → Finance tab as News group
+    - Feed/Other content → Shopping tab as Info group
+  - Removed standalone Trading, Network, and News tabs
+- **Final structure**: 7 pages (Home, Agentic AI, Finance, Personal, Shopping, Video, Work)
+- **Total services**: 90+ items across all pages
+- **Security cleanup**: Removed password references from site names in CSV data
+
+#### Video/Work Tab Refinements (Late Evening)
+- **Dashy crash fixed**: Container hostname resolution issue - redeployed using deploy.sh
+- **Video tab reorganization**:
+  - Moved **CBS All Access** from Live group to Stream group (after ESPN+)
+  - Moved **Twitch** from Stream group to Live group (first item)
+  - Moved **LinkedIn Learning** from Work/Social group to Video/Learn group
+- **Work tab cleanup**: Removed Social group (now empty after LinkedIn Learning moved)
+- **Learn group updated**: Now has Udemy, LinkedIn Learning, Rotten Tomatoes (3 items)
 
 ### 2025-09-05 Changes (Latest)
 - **Moved Playwright** from Development Tools to Automate & Integ category
@@ -89,6 +140,222 @@
 - **Dashboard**: https://dashy.ai-servicers.com
 - **Session Info**: https://dashy.ai-servicers.com/oauth2/userinfo
 - **Test Page**: https://nginx.ai-servicers.com/session-test.html
+
+## Current Pages & Groups Structure (2025-10-10)
+
+### Page 1: Home (infra.yml)
+Infrastructure services and admin tools organized by function:
+
+1. **AI Tools**
+   - OpenWebUI - Local LLM interface
+   - LangChain Portal - API directory and quick links
+   - LangSmith - Observability platform
+
+2. **Development Tools**
+   - GitLab - Git repository and CI/CD
+   - GitHub - External code repositories
+   - Litellm API - Unified LLM API Gateway
+
+3. **Automate & Integ**
+   - n8n - Workflow automation platform
+   - Playwright - Browser automation & testing
+
+4. **External Services**
+   - Cloudflare - DNS & CDN
+   - SendGrid - Email delivery
+   - AWS Console - Amazon Web Services
+   - Discord Channel - Community server
+
+5. **Infrastructure Management**
+   - Portainer - Docker management with SSO
+   - Traefik - Reverse proxy (internal access)
+   - Litellm UI - AI Gateway Admin Dashboard
+   - Postfixadmin - Email admin (internal only)
+
+6. **Security**
+   - Keycloak Admin - Identity management
+   - Bitwarden - Password manager and secrets vault
+   - OAuth2 Session Info - Current session
+   - Keycloak Logout - Single sign-out
+
+7. **Core Services**
+   - Guacamole - Remote access gateway with SSO
+   - OpenProject - Project management platform
+   - Web Portal - Main landing page
+   - Nextcloud - File sharing platform
+
+8. **Data Tools**
+   - pgAdmin - PostgreSQL management (external URL with SSO)
+   - Redis Commander - Redis management
+   - MongoDB Express - MongoDB management
+   - MinIO - S3-compatible object storage
+
+9. **Logging & Monitoring**
+   - Dozzle - Real-time container log viewer (Keycloak SSO)
+   - Grafana - Metrics and logs visualization dashboard (Keycloak SSO)
+   - Loki - Log aggregation with web UI (Keycloak SSO)
+   - Netdata - Real-time metrics (Keycloak SSO)
+
+10. **Architecture & Design**
+    - Draw.io - Diagram editor
+    - Infrastructure Diagrams - System views
+
+### Page 2: Agentic AI (ai-chat.yml)
+AI assistants, frameworks, and resources organized by category:
+
+1. **OpenAI Group**
+   - ChatGPT - https://chatgpt.com/
+   - OpenAI Platform - https://platform.openai.com/
+   - OpenAI Status - https://status.openai.com/
+
+2. **Anthropic Group**
+   - Claude - https://claude.ai/
+   - Anthropic Console - https://console.anthropic.com/
+   - Claude Status - https://status.claude.com/
+
+3. **Google Group**
+   - Google - https://google.com/
+   - Gemini - https://gemini.google.com/
+   - AI Studio - https://aistudio.google.com/prompts/new_chat
+
+4. **Other Group**
+   - Perplexity - https://www.perplexity.ai/
+   - Mistral - https://chat.mistral.ai/chat
+   - Meta AI - https://www.meta.ai/
+
+5. **Lang Group** (Frameworks)
+   - LangChain - https://www.langchain.com/
+   - LangFlow - https://www.langflow.org/
+
+6. **Source Group** (Container Registries)
+   - Chainguard - https://www.chainguard.dev/
+   - Docker Hub - https://hub.docker.com/
+   - Microsoft Container Registry - https://mcr.microsoft.com/en-us/
+
+7. **Models Group** (Model Repositories)
+   - Ollama - https://ollama.com/
+   - Hugging Face - https://huggingface.co/
+
+8. **Cloud Group**
+   - AWS Console - https://aws.amazon.com/
+   - Azure Portal - https://portal.azure.com/#home
+
+9. **Info Group**
+   - TLDR AI Newsletter - https://tldr.tech/api/latest/ai
+
+### Page 3: Finance (finance.yml)
+Financial accounts, trading, news, and market information:
+
+1. **Trading Group**
+   - Interactive Brokers
+   - Fidelity
+   - TradingView
+   - Coinbase
+
+2. **Accounts Group**
+   - Chase
+   - Chase Credit Score
+   - 401k
+
+3. **Credit Group**
+   - Experian ID Works
+
+4. **News Group**
+   - Hussman Funds
+   - WebSurfin Murf
+   - Mish's Global Economic Trend
+   - ChartFreak
+
+5. **Info Group**
+   - US Dollar Index
+   - Stock Futures
+   - DAO
+   - Strategic Forecast Learning
+
+### Page 4: Personal (personal.yml)
+Personal sites, games, social, and network devices:
+
+1. **Talk Group**
+   - Discord
+   - Gmail
+
+2. **Game Group**
+   - Board Game Arena
+   - Dominion Games
+   - Dota Picker
+
+3. **Social Group**
+   - Facebook
+
+4. **Blog Group**
+   - Joey Murphy
+
+5. **Network Group**
+   - Access Point (192.168.1.5)
+   - Security Camera (192.168.1.31)
+
+### Page 5: Shopping (shopping.yml)
+Shopping sites and general information:
+
+1. **Stores Group**
+   - Amazon
+   - Etsy - Zulu Seeds
+   - Fabula Coffee
+
+2. **Info Group**
+   - Feedly
+   - RationalWiki
+   - Weather Underground
+
+### Page 6: Video (video.yml)
+Streaming and video services:
+
+1. **Fav Group**
+   - YouTube
+   - Apple TV
+   - Amazon Prime Video
+   - HBO Max
+
+2. **Stream Group**
+   - Netflix
+   - Disney+
+   - Paramount+
+   - Peacock
+   - Hulu
+   - PBS
+   - ESPN+
+   - CBS All Access
+
+3. **Live Group**
+   - Twitch
+   - YouTube TV
+   - Amazon Live TV
+
+4. **Music Group**
+   - YouTube Music
+   - SiriusXM
+
+5. **Learn Group**
+   - Udemy
+   - LinkedIn Learning
+   - Rotten Tomatoes
+
+### Page 7: Work (work.yml)
+Work-related tools and benefits:
+
+1. **Productive Group**
+   - Work Email
+   - Office Portal
+   - OneNote
+
+2. **Benefits Group**
+   - Aetna Health
+   - Aetna Vision
+   - NYLife Benefits
+   - Express Scripts
+   - NYL Life Insurance
+   - PayFlex Portal
+   - PayFlex Info
 
 ## Architecture
 ```
@@ -362,61 +629,41 @@ For each discovered service:
 - 🚀 **Deployed**: Running but not added to Dashy
 - 📋 **Planned**: Not yet deployed
 
-## Current Service Status (2025-09-01) - New Organization
+## Dashboard Statistics (2025-10-10)
 
-### 1. AI Tools
-- ✅ OpenWebUI - Local LLM interface
-- ✅ ChatGPT - OpenAI assistant
+### Overview
+- **Total Pages**: 7 (Home, Agentic AI, Finance, Personal, Shopping, Video, Work)
+- **Total Groups**: 42 groups across all pages (added Info to Agentic AI)
+- **Total Services**: 100+ services/links across all pages
+- **Authentication**: All infrastructure services protected by Keycloak OAuth2
 
-### 2. Development Tools  
-- ✅ GitLab - Git repository and CI/CD
-- ✅ GitHub - External code repositories
-- ✅ Playwright - Browser automation & testing
+### Page Distribution
+- **Home (Infrastructure/Admin)**: 10 groups, ~29 services
+- **Agentic AI**: 9 groups, 23 AI resources (added developer consoles, cloud, info)
+- **Finance**: 5 groups, 17 financial services (added TradingView, Coinbase, Strategic Forecast)
+- **Personal**: 5 groups, 10 personal sites
+- **Shopping**: 2 groups, 6 shopping/info sites
+- **Video**: 5 groups, 24 streaming/learning services (added YouTube)
+- **Work**: 2 groups, 12 work tools
 
-### 3. Security
-- ✅ Keycloak Admin - Identity management
-- ✅ OAuth2 Session Info - Current session
-- ✅ Keycloak Logout - Single sign-out
+### URL Types
+- **Internal Infrastructure**: `https://[service].ai-servicers.com` (Keycloak SSO)
+- **External Services**: Direct HTTPS links to third-party platforms
+- **Local Network**: `http://192.168.1.x` (network devices)
+- **Internal Only**: `http://linuxserver.lan:[port]`
 
-### 4. External Services
-- ✅ Cloudflare - DNS & CDN
-- ✅ SendGrid - Email delivery
-- ✅ AWS Console - Amazon Web Services
-
-### 5. Core Services
-- ✅ Guacamole - Remote access gateway with SSO
-- ✅ OpenProject - Project management platform
-- ✅ Web Portal - Main landing page
-- ✅ Nextcloud - File sharing platform
-
-### 6. Data & Integration Tools
-- ✅ pgAdmin - PostgreSQL management (external URL with SSO)
-- ✅ Redis Commander - Redis management
-- ✅ MongoDB Express - MongoDB management
-- ✅ MinIO - S3-compatible object storage
-
-### 7. Infrastructure Management
-- ✅ Portainer - Docker management with SSO
-- ✅ Traefik - Reverse proxy (internal access)
-- ✅ Postfixadmin - Email admin (internal only)
-
-### 8. Logging & Monitoring (NEW SECTION)
-- ✅ Dozzle - Real-time container log viewer (Keycloak SSO) - **FIRST**
-- ✅ Grafana - Metrics and logs visualization dashboard (Keycloak SSO) - **SECOND**
-- ✅ Loki - Log aggregation with web UI (Keycloak SSO) - **THIRD**
-- ✅ Netdata - Real-time metrics (Keycloak SSO) - **FOURTH**
-
-### 9. Architecture & Design
-- ✅ Draw.io - Diagram editor
-- ✅ Infrastructure Diagrams - System views
-
-### 6. Common Service URLs
-- **External**: `https://[service].ai-servicers.com`
-- **Internal**: `http://linuxserver.lan:[port]`
-- **OAuth Protected**: Check for OAuth2 proxy containers
-- **Local Only**: `http://localhost:[port]`
+### Quick Access by Category
+- **AI Chat**: ChatGPT, Claude, Gemini, Perplexity, Mistral, Meta AI
+- **AI Developer Consoles**: OpenAI Platform, Anthropic Console, Google AI Studio
+- **Cloud Platforms**: AWS Console, Azure Portal
+- **Financial**: Chase, Fidelity, Interactive Brokers, TradingView, Coinbase, 401k, Experian
+- **Streaming**: YouTube, Netflix, Disney+, HBO Max, Hulu, Amazon Prime, Apple TV
+- **Work**: Microsoft 365, Aetna, NYLife, LinkedIn Learning
+- **Monitoring**: Dozzle, Grafana, Loki, Netdata (all Keycloak SSO)
+- **Management**: Portainer, Keycloak, Traefik (all Keycloak SSO)
+- **Development**: GitLab, GitHub, n8n, Playwright
 
 ---
-*Created by Claude on 2025-08-24*  
-*Last tested and working: 2025-09-01*
-*Updated: 2025-09-01 - Added OpenProject and MinIO, reordered Core Services for workflow*
+*Created by Claude on 2025-08-24*
+*Last updated: 2025-10-10 (Added 9 new links, expanded AI and Finance sections)*
+*Status: ✅ Fully operational - 7 pages, 42 groups, 100+ services*

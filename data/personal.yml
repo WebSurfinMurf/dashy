@@ -1,0 +1,115 @@
+pageInfo:
+  title: Personal
+  description: Personal sites and entertainment
+sections:
+- name: Talk
+  icon: fas fa-comments
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Discord
+    description: Discord community chat
+    icon: fab fa-discord
+    url: https://discord.gg/UD9A65S
+    target: newtab
+    tags:
+    - chat
+    - community
+  - title: Gmail
+    description: Google email
+    icon: fas fa-envelope
+    url: http://mail.google.com
+    target: newtab
+    tags:
+    - email
+    - google
+- name: Game
+  icon: fas fa-gamepad
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Board Game Arena
+    description: Online board games
+    icon: fas fa-chess-board
+    url: https://en.boardgamearena.com/
+    target: newtab
+    tags:
+    - games
+    - board-games
+  - title: Dominion Games
+    description: Online Dominion card game
+    icon: fas fa-crown
+    url: https://dominion.games/
+    target: newtab
+    tags:
+    - dominion
+    - card-game
+  - title: Dota Picker
+    description: Dota 2 hero counterpick tool
+    icon: fas fa-fist-raised
+    url: http://dotapicker.com/counterpick
+    target: newtab
+    tags:
+    - dota
+    - gaming
+- name: Social
+  icon: fas fa-users
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Facebook
+    description: Social network
+    icon: fab fa-facebook
+    url: https://www.facebook.com/
+    target: newtab
+    tags:
+    - social
+    - facebook
+- name: Blog
+  icon: fas fa-blog
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Joey Murphy
+    description: Personal blog
+    icon: fas fa-user-edit
+    url: http://joeymurph.blogspot.com/?view=snapshot
+    target: newtab
+    tags:
+    - blog
+    - personal
+- name: Network
+  icon: fas fa-network-wired
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Access Point
+    description: Wireless access point management
+    icon: fas fa-wifi
+    url: http://192.168.1.5/
+    target: newtab
+    tags:
+    - network
+    - wifi
+  - title: Security Camera
+    description: Network security camera
+    icon: fas fa-video
+    url: http://192.168.1.31/
+    target: newtab
+    tags:
+    - security
+    - camera
+  - title: CUPS Print Server
+    description: AirPrint server for iPhone printing
+    icon: fas fa-print
+    url: http://cups.linuxserver.lan
+    target: newtab
+    tags:
+    - printing
+    - airprint
+    - cups

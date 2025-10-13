@@ -3,6 +3,16 @@ pages:
   path: infra.yml
 - name: Agentic AI
   path: ai-chat.yml
+- name: Finance
+  path: finance.yml
+- name: Personal
+  path: personal.yml
+- name: Shopping
+  path: shopping.yml
+- name: Video
+  path: video.yml
+- name: Work
+  path: work.yml
 appConfig:
   theme: nord-frost
   layout: auto

@@ -1,0 +1,78 @@
+pageInfo:
+  title: News
+  description: News feeds and information sources
+sections:
+- name: Finance
+  icon: fas fa-chart-line
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Hussman Funds
+    description: Economic commentary and analysis
+    icon: fas fa-comment-dollar
+    url: https://www.hussmanfunds.com/category/comment/
+    target: newtab
+    tags:
+    - economics
+    - analysis
+  - title: WebSurfin Murf
+    description: Financial blog and commentary
+    icon: fas fa-blog
+    url: http://websurfinmurf.blogspot.com/
+    target: newtab
+    tags:
+    - blog
+    - finance
+  - title: Mish's Global Economic Trend
+    description: Economic trend analysis
+    icon: fas fa-globe
+    url: http://mishtalk.com/
+    target: newtab
+    tags:
+    - economics
+    - trends
+  - title: ChartFreak
+    description: Market charting and analysis
+    icon: fas fa-chart-bar
+    url: https://chartfreak.com/mm_member_data-namemembershipname-home-page/
+    target: newtab
+    tags:
+    - charts
+    - markets
+- name: Feed
+  icon: fas fa-rss
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Feedly
+    description: RSS feed aggregator
+    icon: fas fa-rss-square
+    url: https://feedly.com/i/my
+    target: newtab
+    tags:
+    - rss
+    - feed
+  - title: RationalWiki
+    description: Community wiki for skepticism
+    icon: fas fa-book
+    url: https://rationalwiki.org/wiki/Main_Page
+    target: newtab
+    tags:
+    - wiki
+    - reference
+- name: Other
+  icon: fas fa-newspaper
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Weather Underground
+    description: Local weather forecast
+    icon: fas fa-cloud-sun
+    url: https://www.wunderground.com/weather/us/nj/new-providence/07974
+    target: newtab
+    tags:
+    - weather
+    - local

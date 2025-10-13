@@ -1,0 +1,18 @@
+pageInfo:
+  title: Trading
+  description: Investment and trading platforms
+sections:
+- name: Platforms
+  icon: fas fa-chart-line
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Interactive Brokers
+    description: Trading platform
+    icon: fas fa-exchange-alt
+    url: https://www.interactivebrokers.com/
+    target: newtab
+    tags:
+    - trading
+    - broker

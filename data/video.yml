@@ -1,0 +1,195 @@
+pageInfo:
+  title: Video
+  description: Streaming and video services
+sections:
+- name: Fav
+  icon: fas fa-star
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: YouTube
+    description: Video sharing and streaming
+    icon: fab fa-youtube
+    url: https://www.youtube.com
+    target: newtab
+    tags:
+    - streaming
+    - video
+    - youtube
+  - title: Apple TV
+    description: Apple TV+ streaming
+    icon: fab fa-apple
+    url: https://tv.apple.com/
+    target: newtab
+    tags:
+    - streaming
+    - apple
+  - title: Amazon Prime Video
+    description: Amazon video streaming
+    icon: fab fa-amazon
+    url: https://www.amazon.com/Amazon-Video/b/ref=topnav_storetab_atv?node=2858778011&ie=UTF8
+    target: newtab
+    tags:
+    - streaming
+    - amazon
+  - title: HBO Max
+    description: HBO streaming service
+    icon: fas fa-film
+    url: https://www.hbomax.com/
+    target: newtab
+    tags:
+    - streaming
+    - hbo
+- name: Stream
+  icon: fas fa-play-circle
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Netflix
+    description: Netflix streaming
+    icon: fas fa-tv
+    url: http://www.netflix.com/Kids
+    target: newtab
+    tags:
+    - streaming
+    - netflix
+  - title: Disney+
+    description: Disney streaming service
+    icon: fas fa-magic
+    url: https://www.disneyplus.com/
+    target: newtab
+    tags:
+    - streaming
+    - disney
+  - title: Paramount+
+    description: Paramount streaming service
+    icon: fas fa-mountain
+    url: https://www.paramountplus.com/
+    target: newtab
+    tags:
+    - streaming
+    - paramount
+  - title: Peacock
+    description: NBC streaming service
+    icon: fas fa-feather
+    url: https://www.peacocktv.com/
+    target: newtab
+    tags:
+    - streaming
+    - nbc
+  - title: Hulu
+    description: Hulu streaming service
+    icon: fas fa-h-square
+    url: http://www.hulu.com/
+    target: newtab
+    tags:
+    - streaming
+    - hulu
+  - title: PBS
+    description: PBS video content
+    icon: fas fa-broadcast-tower
+    url: http://video.pbs.org/#
+    target: newtab
+    tags:
+    - pbs
+    - educational
+  - title: ESPN+
+    description: ESPN sports streaming
+    icon: fas fa-football-ball
+    url: https://www.espn.com/watch/espnplus/?om-navmethod=topnav
+    target: newtab
+    tags:
+    - sports
+    - espn
+  - title: CBS All Access
+    description: CBS streaming service
+    icon: fas fa-eye
+    url: https://www.cbs.com/all-access/user/signin/
+    target: newtab
+    tags:
+    - cbs
+    - streaming
+- name: Live
+  icon: fas fa-satellite-dish
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Twitch
+    description: Live streaming platform
+    icon: fab fa-twitch
+    url: http://www.twitch.com
+    target: newtab
+    tags:
+    - streaming
+    - gaming
+  - title: YouTube TV
+    description: YouTube live TV streaming
+    icon: fab fa-youtube
+    url: https://tv.youtube.com/
+    target: newtab
+    tags:
+    - live-tv
+    - youtube
+  - title: Amazon Live TV
+    description: Amazon live channels
+    icon: fab fa-amazon
+    url: https://www.amazon.com/gp/video/livetv
+    target: newtab
+    tags:
+    - live-tv
+    - amazon
+- name: Music
+  icon: fas fa-music
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: YouTube Music
+    description: YouTube music streaming
+    icon: fab fa-youtube
+    url: https://music.youtube.com/
+    target: newtab
+    tags:
+    - music
+    - youtube
+  - title: SiriusXM
+    description: Satellite radio streaming
+    icon: fas fa-satellite
+    url: https://player.siriusxm.com/
+    target: newtab
+    tags:
+    - music
+    - radio
+- name: Learn
+  icon: fas fa-graduation-cap
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Udemy
+    description: Online learning courses
+    icon: fas fa-book-reader
+    url: https://www.udemy.com/home/my-courses/learning/
+    target: newtab
+    tags:
+    - learning
+    - courses
+  - title: LinkedIn Learning
+    description: Professional development courses
+    icon: fab fa-linkedin
+    url: https://www.linkedin.com/learning/me
+    target: newtab
+    tags:
+    - learning
+    - linkedin
+  - title: Rotten Tomatoes
+    description: Movie reviews and showtimes
+    icon: fas fa-tomato
+    url: http://www.rottentomatoes.com/movie_times/07974/
+    target: newtab
+    tags:
+    - movies
+    - reviews
