@@ -300,6 +300,17 @@ sections:
     - storage
     - s3
     - data
+  - title: ArangoDB
+    description: Multi-model database for AI memory storage
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/arangodb.png
+    url: https://arangodb.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - database
+    - arangodb
+    - ai
+    - sso
 - name: Logging & Monitoring
   icon: fas fa-chart-line
   items:
