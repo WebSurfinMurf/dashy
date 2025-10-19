@@ -16,17 +16,17 @@ if [[ $EUID -eq 0 ]]; then
 fi
 
 # Load environment variables
-if [ ! -f /home/administrator/projects/secrets/dashy.env ]; then
-    echo -e "${RED}Environment file not found: /home/administrator/projects/secrets/dashy.env${NC}"
+if [ ! -f $HOME/projects/secrets/dashy.env ]; then
+    echo -e "${RED}Environment file not found: $HOME/projects/secrets/dashy.env${NC}"
     echo "Run ./setup-keycloak.sh first to configure Keycloak integration"
     exit 1
 fi
 
-source /home/administrator/projects/secrets/dashy.env
+source $HOME/projects/secrets/dashy.env
 
 # Verify required variables
 if [ "$OAUTH2_PROXY_CLIENT_SECRET" = "PLACEHOLDER" ] || [ -z "$OAUTH2_PROXY_CLIENT_SECRET" ]; then
-    echo -e "${RED}CLIENT_SECRET not configured in /home/administrator/projects/secrets/dashy.env${NC}"
+    echo -e "${RED}CLIENT_SECRET not configured in $HOME/projects/secrets/dashy.env${NC}"
     echo "Get the secret from Keycloak admin → Clients → dashy → Credentials"
     exit 1
 fi
@@ -73,7 +73,7 @@ docker run -d \
   --name dashy-auth-proxy \
   --restart unless-stopped \
   --network traefik-net \
-  --env-file /home/administrator/projects/secrets/dashy.env \
+  --env-file $HOME/projects/secrets/dashy.env \
   -e OAUTH2_PROXY_UPSTREAMS=http://dashy:8080/ \
   -e OAUTH2_PROXY_PASS_HOST_HEADER=false \
   --label "traefik.enable=true" \
@@ -129,7 +129,7 @@ echo "  Restart auth:  docker restart dashy-auth-proxy"
 echo ""
 
 # Check if group restriction is enabled
-if grep -q "^OAUTH2_PROXY_ALLOWED_GROUPS=" /home/administrator/projects/secrets/dashy.env; then
+if grep -q "^OAUTH2_PROXY_ALLOWED_GROUPS=" $HOME/projects/secrets/dashy.env; then
     echo -e "${GREEN}Group restriction: ENABLED (administrators only)${NC}"
 else
     echo -e "${YELLOW}Group restriction: DISABLED (all authenticated users)${NC}"

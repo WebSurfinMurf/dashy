@@ -35,6 +35,42 @@ sections:
     - langchain
     - external
     - monitoring
+- name: Context Management
+  icon: fas fa-comments
+  items:
+  - title: Element
+    description: Matrix web client for AI collaboration
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/element.png
+    url: https://element.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - context
+    - chat
+    - matrix
+    - collaboration
+  - title: Matrix
+    description: Decentralized chat homeserver
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/matrix.png
+    url: https://matrix.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - context
+    - chat
+    - federation
+    - api
+  - title: Obsidian
+    description: Knowledge management and note-taking
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/obsidian.png
+    url: https://obsidian.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - context
+    - notes
+    - knowledge
+    - sso
 - name: Development Tools
   icon: fas fa-code
   items:
@@ -70,6 +106,16 @@ sections:
 - name: Automate & Integ
   icon: fas fa-cogs
   items:
+  - title: Telegram
+    description: Messaging platform with web interface
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/telegram.png
+    url: https://telegram.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - communication
+    - messaging
+    - sso
   - title: n8n
     description: Workflow automation platform
     icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/n8n.png
@@ -351,27 +397,3 @@ sections:
     url: https://netdata.ai-servicers.com
     target: newtab
     statusCheck: true
-    tags:
-    - monitoring
-    - metrics
-    - sso
-- name: Architecture & Design
-  icon: fas fa-project-diagram
-  items:
-  - title: Draw.io
-    description: Diagram editor
-    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/drawio.png
-    url: https://drawio.ai-servicers.com
-    target: newtab
-    statusCheck: true
-    tags:
-    - architecture
-    - diagrams
-  - title: Infrastructure Diagrams
-    description: System architecture views
-    icon: fas fa-sitemap
-    url: https://diagrams.nginx.ai-servicers.com
-    target: newtab
-    tags:
-    - architecture
-    - documentation

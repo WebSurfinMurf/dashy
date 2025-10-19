@@ -9,7 +9,7 @@ This document defines the categorization and organization structure for services
 - **External Services with SSO**: 7 (Dashy, Portainer, MongoDB Express, Redis Commander, GitLab, Guacamole, Keycloak)
 - **Internal-Only Services**: 4 (Traefik Dashboard, pgAdmin, Rundeck, Postfixadmin)
 - **Categories in Use**: 8 active categories (including Security)
-- **Networks**: 5 Docker networks active (traefik-proxy, keycloak-net, mailserver-net, postgres-net, guacamole-net)
+- **Networks**: 5 Docker networks active (traefik-net, keycloak-net, mailserver-net, postgres-net, guacamole-net)
 - **Databases Running**: 3 (PostgreSQL, MongoDB, Redis)
 
 ### Quick Stats
@@ -201,7 +201,7 @@ Standard tags to use:
 
 ### Active Networks and Services
 
-#### traefik-proxy
+#### traefik-net
 Main reverse proxy network connecting:
 - Traefik, Keycloak, Dashy, OAuth2-Proxy
 - Nextcloud, Guacamole

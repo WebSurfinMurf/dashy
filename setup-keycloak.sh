@@ -14,7 +14,7 @@ echo "This script guides you through the initial Keycloak configuration."
 echo ""
 
 # Check if environment file exists
-ENV_FILE="/home/administrator/projects/secrets/dashy.env"
+ENV_FILE="$HOME/projects/secrets/dashy.env"
 if [ -f "$ENV_FILE" ]; then
     echo -e "${YELLOW}Environment file already exists. Checking configuration...${NC}"
     source "$ENV_FILE"

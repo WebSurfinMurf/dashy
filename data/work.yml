@@ -94,3 +94,28 @@ sections:
     tags:
     - hsa
     - info
+- name: Utilities
+  icon: fas fa-tools
+  displayData:
+    sortBy: default
+    itemSize: large
+  items:
+  - title: Stirling-PDF
+    description: PDF manipulation and conversion tools
+    icon: fas fa-file-pdf
+    url: https://stirling-pdf.ai-servicers.com
+    target: newtab
+    tags:
+    - pdf
+    - tools
+    - utilities
+  - title: MicroBin
+    description: Pastebin, file sharing, and URL shortener
+    icon: fas fa-clipboard
+    url: https://microbin.ai-servicers.com
+    target: newtab
+    tags:
+    - pastebin
+    - clipboard
+    - file-sharing
+    - utilities

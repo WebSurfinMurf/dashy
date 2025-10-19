@@ -3,9 +3,20 @@
 ## Working Configuration
 **Date**: 2025-08-24
 **Status**: ✅ WORKING - Dashy protected by Keycloak OAuth2 authentication
-**Last Updated**: 2025-10-10
+**Last Updated**: 2025-10-19
 
 ## Recent Configuration Updates
+
+### 2025-10-19 - Added Obsidian to AI Tools
+
+#### New Service Addition
+- **Added Obsidian** to AI Tools section (first item)
+  - Knowledge management and note-taking platform
+  - URL: https://obsidian.ai-servicers.com
+  - Icon: Dashboard Icons CDN (Obsidian logo)
+  - Tags: ai, notes, knowledge, sso
+- **Total AI Tools now: 4 services** (Obsidian, OpenWebUI, LangChain Portal, LangSmith)
+- **Rebuilt and restarted** Dashy successfully
 
 ### 2025-10-10 - Multi-Page Configuration, CSV Import, Reorganization & Refinements
 
@@ -147,6 +158,7 @@
 Infrastructure services and admin tools organized by function:
 
 1. **AI Tools**
+   - Obsidian - Knowledge management and note-taking
    - OpenWebUI - Local LLM interface
    - LangChain Portal - API directory and quick links
    - LangSmith - Observability platform
@@ -382,8 +394,8 @@ Internet → Traefik → OAuth2 Proxy (port 4180) → Dashy (port 8080)
 **Cause**: Docker container name not automatically resolvable on network  
 **Solution**: Add network alias when connecting container
 ```bash
-docker network disconnect traefik-proxy dashy 2>/dev/null || true
-docker network connect --alias dashy traefik-proxy dashy
+docker network disconnect traefik-net dashy 2>/dev/null || true
+docker network connect --alias dashy traefik-net dashy
 ```
 
 ### 3. OAuth2 Proxy Upstream Configuration
@@ -455,7 +467,7 @@ OAUTH2_PROXY_HTTP_ADDRESS=0.0.0.0:4180
 - **Group Mapper**: Required for group-based access control
 
 ## Network Requirements
-- Both containers must be on `traefik-proxy` network
+- Both containers must be on `traefik-net` network
 - Dashy must have network alias for name resolution
 - OAuth2 Proxy needs Traefik labels (not Dashy)
 
@@ -473,8 +485,8 @@ OAUTH2_PROXY_HTTP_ADDRESS=0.0.0.0:4180
 docker ps | grep dashy
 
 # Test Dashy from internal network
-docker run --rm --network traefik-proxy alpine sh -c "ping -c 1 dashy"
-docker run --rm --network traefik-proxy curlimages/curl curl -I http://dashy:8080
+docker run --rm --network traefik-net alpine sh -c "ping -c 1 dashy"
+docker run --rm --network traefik-net curlimages/curl curl -I http://dashy:8080
 
 # Check OAuth2 Proxy logs
 docker logs dashy-auth-proxy --tail 20
@@ -524,7 +536,7 @@ If Dashy stops working:
 1. Check container health: `docker ps | grep dashy`
 2. Check logs: `docker logs dashy-auth-proxy --tail 50`
 3. Verify network alias: `docker exec dashy hostname`
-4. Test internal connectivity: `docker run --rm --network traefik-proxy alpine ping -c 1 dashy`
+4. Test internal connectivity: `docker run --rm --network traefik-net alpine ping -c 1 dashy`
 5. Clear session and retry in incognito mode
 6. If stuck, kill containers properly before restarting:
    ```bash
@@ -629,16 +641,16 @@ For each discovered service:
 - 🚀 **Deployed**: Running but not added to Dashy
 - 📋 **Planned**: Not yet deployed
 
-## Dashboard Statistics (2025-10-10)
+## Dashboard Statistics (2025-10-19)
 
 ### Overview
 - **Total Pages**: 7 (Home, Agentic AI, Finance, Personal, Shopping, Video, Work)
-- **Total Groups**: 42 groups across all pages (added Info to Agentic AI)
+- **Total Groups**: 42 groups across all pages
 - **Total Services**: 100+ services/links across all pages
 - **Authentication**: All infrastructure services protected by Keycloak OAuth2
 
 ### Page Distribution
-- **Home (Infrastructure/Admin)**: 10 groups, ~29 services
+- **Home (Infrastructure/Admin)**: 10 groups, ~30 services (added Obsidian)
 - **Agentic AI**: 9 groups, 23 AI resources (added developer consoles, cloud, info)
 - **Finance**: 5 groups, 17 financial services (added TradingView, Coinbase, Strategic Forecast)
 - **Personal**: 5 groups, 10 personal sites
@@ -665,5 +677,5 @@ For each discovered service:
 
 ---
 *Created by Claude on 2025-08-24*
-*Last updated: 2025-10-10 (Added 9 new links, expanded AI and Finance sections)*
+*Last updated: 2025-10-19 (Added Obsidian to AI Tools section)*
 *Status: ✅ Fully operational - 7 pages, 42 groups, 100+ services*
