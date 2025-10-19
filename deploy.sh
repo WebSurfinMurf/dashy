@@ -44,16 +44,19 @@ if docker ps | grep -q "dashy\|dashy-auth-proxy"; then
     exit 1
 fi
 
-# Create network if it doesn't exist
-echo -e "${YELLOW}Ensuring network exists...${NC}"
+# Create networks if they don't exist
+echo -e "${YELLOW}Ensuring networks exist...${NC}"
 docker network create traefik-net 2>/dev/null || echo "Network traefik-net already exists"
+docker network create keycloak-net 2>/dev/null || echo "Network keycloak-net already exists"
+docker network create dashy-net 2>/dev/null || echo "Network dashy-net already exists"
 
-# Deploy Dashy container (internal only, no Traefik labels)
+# Deploy Dashy container (backend only, isolated on dashy-net)
 echo -e "${YELLOW}Deploying Dashy container...${NC}"
 docker run -d \
   --name dashy \
   --restart unless-stopped \
-  --network traefik-net \
+  --network dashy-net \
+  --network-alias dashy \
   -v /home/administrator/projects/dashy/config/conf.yml:/app/user-data/conf.yml \
   -v /home/administrator/projects/dashy/data:/app/user-data \
   --health-cmd "node /app/services/healthcheck || exit 1" \
@@ -61,11 +64,6 @@ docker run -d \
   --health-timeout 10s \
   --health-retries 3 \
   lissy93/dashy:latest
-
-# Ensure dashy is resolvable by name on the network
-echo -e "${YELLOW}Configuring network alias...${NC}"
-docker network disconnect traefik-net dashy 2>/dev/null || true
-docker network connect --alias dashy traefik-net dashy
 
 # Deploy OAuth2 Proxy with Traefik labels
 echo -e "${YELLOW}Deploying OAuth2 Proxy...${NC}"
@@ -85,10 +83,10 @@ docker run -d \
   --label "traefik.http.services.dashy.loadbalancer.server.port=4180" \
   quay.io/oauth2-proxy/oauth2-proxy:latest
 
-# Connect OAuth2 proxy to additional networks
-echo -e "${YELLOW}Connecting OAuth2 proxy to keycloak-net...${NC}"
-docker network create keycloak-net 2>/dev/null || echo "Network keycloak-net already exists"
+# Connect OAuth2 proxy to additional networks (keycloak for auth, dashy-net for backend)
+echo -e "${YELLOW}Connecting OAuth2 proxy to keycloak-net and dashy-net...${NC}"
 docker network connect keycloak-net dashy-auth-proxy 2>/dev/null || true
+docker network connect dashy-net dashy-auth-proxy 2>/dev/null || true
 
 echo -e "${YELLOW}Waiting for containers to start...${NC}"
 sleep 10
@@ -111,10 +109,10 @@ echo ""
 
 # Test internal connectivity
 echo -e "${YELLOW}Testing internal connectivity...${NC}"
-if docker run --rm --network traefik-net alpine ping -c 1 dashy >/dev/null 2>&1; then
-    echo -e "${GREEN}✓ Network alias working${NC}"
+if docker exec dashy-auth-proxy ping -c 1 dashy >/dev/null 2>&1; then
+    echo -e "${GREEN}✓ OAuth2 proxy can reach Dashy backend${NC}"
 else
-    echo -e "${RED}✗ Network alias not working${NC}"
+    echo -e "${RED}✗ OAuth2 proxy cannot reach Dashy backend${NC}"
 fi
 
 echo ""

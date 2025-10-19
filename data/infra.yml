@@ -106,16 +106,6 @@ sections:
 - name: Automate & Integ
   icon: fas fa-cogs
   items:
-  - title: Telegram
-    description: Messaging platform with web interface
-    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/telegram.png
-    url: https://telegram.ai-servicers.com
-    target: newtab
-    statusCheck: true
-    tags:
-    - communication
-    - messaging
-    - sso
   - title: n8n
     description: Workflow automation platform
     icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/n8n.png

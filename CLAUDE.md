@@ -7,6 +7,38 @@
 
 ## Recent Configuration Updates
 
+### 2025-10-19 - Fixed OAuth2 Network Issue ✅
+
+#### Problem
+- **Symptom**: OAuth2 proxy returning "Error proxying to upstream server: timeout awaiting response headers"
+- **Cause**: Improper network configuration - both dashy and dashy-auth-proxy were on `traefik-net` only
+- **Root Issue**: Missing dedicated backend network for OAuth2 proxy to reach Dashy
+
+#### Solution Applied
+- **Created `dashy-net`** dedicated backend network
+- **Reconfigured networks** following proper OAuth2 pattern:
+  - `dashy`: `dashy-net` only (backend isolation)
+  - `dashy-auth-proxy`: `traefik-net` + `keycloak-net` + `dashy-net` (three networks required)
+- **Updated deploy.sh** to enforce this pattern on every deployment
+- **Result**: ✅ Dashy now accessible at https://dashy.ai-servicers.com with proper OAuth2 authentication
+
+#### Key Learning
+The OAuth2 proxy pattern documented in `/home/administrator/projects/AINotes/security.md` requires:
+1. Backend service isolated on component network only
+2. OAuth2 proxy bridging three networks (traefik for web, keycloak for auth, component for backend)
+3. Never expose backend directly on traefik-net (security best practice)
+
+## Recent Configuration Updates
+
+### 2025-10-19 - Removed Telegram from Automate & Integ
+
+#### Service Removal
+- **Removed Telegram** from Automate & Integ section
+  - Entry removed from data/infra.yml
+  - Rebuilt Dashy successfully
+  - Service confirmed operational at https://dashy.ai-servicers.com
+- **Automate & Integ section** now contains n8n and Playwright only (2 services)
+
 ### 2025-10-19 - Added Obsidian to AI Tools
 
 #### New Service Addition
@@ -650,7 +682,7 @@ For each discovered service:
 - **Authentication**: All infrastructure services protected by Keycloak OAuth2
 
 ### Page Distribution
-- **Home (Infrastructure/Admin)**: 10 groups, ~30 services (added Obsidian)
+- **Home (Infrastructure/Admin)**: 10 groups, ~29 services (removed Telegram)
 - **Agentic AI**: 9 groups, 23 AI resources (added developer consoles, cloud, info)
 - **Finance**: 5 groups, 17 financial services (added TradingView, Coinbase, Strategic Forecast)
 - **Personal**: 5 groups, 10 personal sites
@@ -677,5 +709,5 @@ For each discovered service:
 
 ---
 *Created by Claude on 2025-08-24*
-*Last updated: 2025-10-19 (Added Obsidian to AI Tools section)*
+*Last updated: 2025-10-19 (Removed Telegram from Automate & Integ section)*
 *Status: ✅ Fully operational - 7 pages, 42 groups, 100+ services*
