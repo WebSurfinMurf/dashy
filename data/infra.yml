@@ -71,6 +71,17 @@ sections:
     - notes
     - knowledge
     - sso
+  - title: AList
+    description: File Manager - Browse Projects & Agent Workspaces
+    icon: fas fa-folder-open
+    url: https://alist.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - context
+    - files
+    - browser
+    - sso
 - name: Development Tools
   icon: fas fa-code
   items:
@@ -387,3 +398,27 @@ sections:
     url: https://netdata.ai-servicers.com
     target: newtab
     statusCheck: true
+    tags:
+    - monitoring
+    - metrics
+    - sso
+- name: Architecture & Design
+  icon: fas fa-project-diagram
+  items:
+  - title: Draw.io
+    description: Diagram editor
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/drawio.png
+    url: https://drawio.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - architecture
+    - diagrams
+  - title: Infrastructure Diagrams
+    description: System architecture views
+    icon: fas fa-sitemap
+    url: https://diagrams.nginx.ai-servicers.com
+    target: newtab
+    tags:
+    - architecture
+    - documentation

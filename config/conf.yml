@@ -1,6 +1,6 @@
 pages:
 - name: Home
-  path: infra.yml
+  path: conf.yml
 - name: Agentic AI
   path: ai-chat.yml
 - name: Finance
@@ -105,6 +105,17 @@ sections:
     - context
     - notes
     - knowledge
+    - sso
+  - title: AList
+    description: File Manager - Browse Projects & Agent Workspaces
+    icon: fas fa-folder-open
+    url: https://alist.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - context
+    - files
+    - browser
     - sso
 - name: Development Tools
   icon: fas fa-code
