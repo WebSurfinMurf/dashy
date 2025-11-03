@@ -120,7 +120,7 @@ sections:
   - title: OpenMemory
     description: Persistent AI memory across sessions
     icon: fas fa-database
-    url: http://linuxserver.lan:3200
+    url: https://openmemory.ai-servicers.com/oauth2/start
     target: newtab
     statusCheck: true
     tags:

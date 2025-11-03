@@ -77,6 +77,33 @@ If changes don't appear after `./deploy.sh`:
 
 ## Recent Configuration Updates
 
+### 2025-11-03 - Added OpenMemory to Context Management (Home)
+
+#### Service Addition
+- **Added OpenMemory** to Context Management section (Home page)
+  - Persistent AI memory across sessions
+  - URL: https://openmemory.ai-servicers.com/oauth2/start (OAuth2 login endpoint)
+  - Icon: fas fa-database
+  - Tags: context, ai, memory, mem0
+- **Deployed successfully** using proper deployment procedure (`./deploy.sh`)
+
+#### OAuth2 ForwardAuth Workaround Pattern
+**Issue**: OpenMemory uses OAuth2 Proxy ForwardAuth pattern. Direct URL returns 401 without auto-redirect.
+
+**Solution**: Link directly to OAuth2 start endpoint instead of base URL:
+- ❌ Base URL: `https://openmemory.ai-servicers.com/` → Shows "Unauthorized"
+- ✅ OAuth2 URL: `https://openmemory.ai-servicers.com/oauth2/start` → Redirects to Keycloak
+
+**Pattern for Future Services**: When adding services with OAuth2 ForwardAuth:
+1. Test both base URL and `/oauth2/start` endpoint
+2. If base URL shows "Unauthorized" without redirect, use `/oauth2/start` in Dashy
+3. Document in service's CLAUDE.md file
+4. This is expected ForwardAuth behavior, not a bug
+
+**Related Documentation**:
+- Pattern documented in: `~/.claude/skills/keycloak-setup/references/oauth2-proxy-forwardauth.md`
+- OpenMemory deployment: `/home/administrator/projects/openmemory/CLAUDE.md`
+
 ### 2025-11-02 - Added Qdrant to Data Tools
 
 #### Service Addition
