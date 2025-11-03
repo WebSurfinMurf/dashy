@@ -345,6 +345,16 @@ sections:
     statusCheck: true
     tags:
     - storage
+  - title: Qdrant
+    description: Vector database for embeddings and semantic search
+    icon: fas fa-project-diagram
+    url: https://qdrant.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - vector-database
+    - ai
+    - sso
     - s3
     - data
   - title: ArangoDB

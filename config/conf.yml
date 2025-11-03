@@ -117,6 +117,17 @@ sections:
     - files
     - browser
     - sso
+  - title: OpenMemory
+    description: Persistent AI memory across sessions
+    icon: fas fa-database
+    url: http://linuxserver.lan:3200
+    target: newtab
+    statusCheck: true
+    tags:
+    - context
+    - ai
+    - memory
+    - mem0
 - name: Development Tools
   icon: fas fa-code
   items:
@@ -382,6 +393,16 @@ sections:
     - storage
     - s3
     - data
+  - title: Qdrant
+    description: Vector database for embeddings and semantic search
+    icon: fas fa-project-diagram
+    url: https://qdrant.ai-servicers.com/dashboard
+    target: newtab
+    statusCheck: true
+    tags:
+    - vector-database
+    - ai
+    - sso
   - title: ArangoDB
     description: Multi-model database for AI memory storage
     icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/arangodb.png

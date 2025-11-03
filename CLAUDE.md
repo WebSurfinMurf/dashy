@@ -3,9 +3,103 @@
 ## Working Configuration
 **Date**: 2025-08-24
 **Status**: ✅ WORKING - Dashy protected by Keycloak OAuth2 authentication
-**Last Updated**: 2025-10-19
+**Last Updated**: 2025-11-02
+
+## ⚠️ CRITICAL: Updating Dashy Configuration
+
+**When adding/modifying services in Dashy, you MUST run `./deploy.sh` to apply changes.**
+
+### Why `deploy.sh` is Required
+
+Dashy configuration changes require **complete container recreation**, not just rebuild/restart:
+
+```bash
+# ❌ INCORRECT - Does not fully apply changes
+docker exec dashy yarn build
+docker restart dashy
+
+# ✅ CORRECT - Completely recreates containers with fresh config
+cd /home/administrator/projects/dashy
+./deploy.sh
+```
+
+### What `deploy.sh` Does
+
+1. **Kills and removes** existing containers (dashy + dashy-auth-proxy)
+2. **Recreates containers** from scratch with fresh configuration mounts
+3. **Reconnects networks** properly (dashy-net, traefik-net, keycloak-net)
+4. **Waits for health** and verifies connectivity
+5. **Ensures OAuth2 integration** is properly configured
+
+### Standard Update Procedure
+
+**⚠️ IMPORTANT: Which file to edit?**
+
+Dashy uses **multi-page configuration**. For the Home page (default view):
+
+```bash
+# ✅ CORRECT - Edit the main config file for Home page
+vi /home/administrator/projects/dashy/config/conf.yml
+
+# ❌ WRONG - This is a separate page file, not the Home page
+vi /home/administrator/projects/dashy/data/infra.yml
+```
+
+**File structure**:
+- `config/conf.yml` - **Home page sections** (AI Tools, Data Tools, etc.) + multi-page setup
+- `data/infra.yml` - Separate page content (not used currently)
+- `data/ai-chat.yml` - Agentic AI page content
+- `data/finance.yml`, `data/personal.yml`, etc. - Other page content
+
+**Complete update procedure**:
+
+```bash
+# 1. Edit configuration (HOME PAGE = config/conf.yml!)
+vi /home/administrator/projects/dashy/config/conf.yml
+
+# 2. Deploy (recreates containers)
+cd /home/administrator/projects/dashy
+./deploy.sh
+
+# 3. Hard refresh browser (Ctrl+Shift+R)
+# Changes should be visible immediately
+```
+
+### Troubleshooting
+
+If changes don't appear after `./deploy.sh`:
+1. **Clear browser cache** completely for dashy.ai-servicers.com
+2. **Open incognito/private window** to bypass cache
+3. **Check logs**: `docker logs dashy --tail 50`
+4. **Verify config mounted**: `docker exec dashy cat /app/user-data/infra.yml | grep -A 5 "new-service"`
+
+**Last verified**: 2025-11-02 (Qdrant addition)
 
 ## Recent Configuration Updates
+
+### 2025-11-02 - Added Qdrant to Data Tools
+
+#### Service Addition
+- **Added Qdrant** to Data Tools section (after MinIO, before ArangoDB)
+  - Vector database for embeddings and semantic search
+  - URL: https://qdrant.ai-servicers.com (OAuth2 protected)
+  - Icon: fas fa-project-diagram
+  - Tags: vector-database, ai, sso
+- **Deployed successfully** using proper deployment procedure
+
+#### Critical Lessons Learned
+1. **Must use `./deploy.sh`** to apply changes (not just yarn build + restart)
+2. **Edit the correct file**:
+   - ✅ `config/conf.yml` - Home page sections (AI Tools, Data Tools, etc.)
+   - ❌ `data/infra.yml` - Separate page file (not currently used for Home)
+3. **Multi-page confusion**: Dashy's multi-page setup uses `conf.yml` for Home page content, with `infra.yml` being a legacy/unused separate page file
+
+#### Troubleshooting Steps Taken
+- Initially edited wrong file (`data/infra.yml` instead of `config/conf.yml`)
+- Config changes didn't appear despite rebuild/restart
+- Identified multi-page structure issue by checking mounted files inside container
+- Corrected configuration in `config/conf.yml` and redeployed
+- Updated documentation to prevent future confusion
 
 ### 2025-10-19 - Fixed OAuth2 Network Issue ✅
 
