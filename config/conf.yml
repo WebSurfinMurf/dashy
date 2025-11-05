@@ -53,7 +53,7 @@ sections:
   - title: LangChain Portal
     description: LangChain API directory and quick links
     icon: fas fa-link
-    url: https://langchain-portal.ai-servicers.com
+    url: https://nginx.ai-servicers.com/langchain-portal/
     target: newtab
     statusCheck: true
     tags:
@@ -70,6 +70,74 @@ sections:
     - langchain
     - external
     - monitoring
+- name: Development Tools
+  icon: fas fa-code
+  items:
+  - title: GitLab
+    description: Git repository and CI/CD
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/gitlab.png
+    url: https://gitlab.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - dev
+    - git
+    - cicd
+  - title: GitHub
+    description: Code repositories
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/github.png
+    url: https://github.com
+    target: newtab
+    tags:
+    - dev
+    - external
+    - git
+  - title: Litellm API
+    description: Unified LLM API Gateway
+    icon: fas fa-network-wired
+    url: https://litellm.ai-servicers.com
+    target: newtab
+    statusCheck: false
+    tags:
+    - dev
+    - api
+    - llm
+- name: Automate & Integ
+  icon: fas fa-cogs
+  items:
+  - title: n8n
+    description: Workflow automation platform
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/n8n.png
+    url: https://n8n.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - automation
+    - workflows
+    - integration
+  - title: Playwright
+    description: Browser automation & testing
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/playwright.png
+    url: https://playwright.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - automation
+    - testing
+    - browser
+- name: Applications
+  icon: fas fa-th
+  items:
+  - title: Nginx Portal
+    description: Static sites and documentation portal
+    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nginx.png
+    url: https://nginx.ai-servicers.com
+    target: newtab
+    statusCheck: true
+    tags:
+    - applications
+    - portal
+    - documentation
 - name: Context Management
   icon: fas fa-comments
   items:
@@ -128,61 +196,6 @@ sections:
     - ai
     - memory
     - mem0
-- name: Development Tools
-  icon: fas fa-code
-  items:
-  - title: GitLab
-    description: Git repository and CI/CD
-    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/gitlab.png
-    url: https://gitlab.ai-servicers.com
-    target: newtab
-    statusCheck: true
-    tags:
-    - dev
-    - git
-    - cicd
-  - title: GitHub
-    description: Code repositories
-    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/github.png
-    url: https://github.com
-    target: newtab
-    tags:
-    - dev
-    - external
-    - git
-  - title: Litellm API
-    description: Unified LLM API Gateway
-    icon: fas fa-network-wired
-    url: https://litellm.ai-servicers.com
-    target: newtab
-    statusCheck: false
-    tags:
-    - dev
-    - api
-    - llm
-- name: Automate & Integ
-  icon: fas fa-cogs
-  items:
-  - title: n8n
-    description: Workflow automation platform
-    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/n8n.png
-    url: https://n8n.ai-servicers.com
-    target: newtab
-    statusCheck: true
-    tags:
-    - automation
-    - workflows
-    - integration
-  - title: Playwright
-    description: Browser automation & testing
-    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/playwright.png
-    url: https://playwright.ai-servicers.com
-    target: newtab
-    statusCheck: true
-    tags:
-    - automation
-    - testing
-    - browser
 - name: External Services
   icon: fas fa-globe
   items:
@@ -332,15 +345,6 @@ sections:
     - core
     - pm
     - collaboration
-  - title: Web Portal
-    description: Main landing page
-    icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nginx.png
-    url: https://nginx.ai-servicers.com
-    target: newtab
-    statusCheck: true
-    tags:
-    - core
-    - portal
   - title: Nextcloud
     description: File sharing and collaboration
     icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nextcloud.png

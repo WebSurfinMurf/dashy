@@ -77,6 +77,46 @@ If changes don't appear after `./deploy.sh`:
 
 ## Recent Configuration Updates
 
+### 2025-11-04 - Added Applications Section to Home Page
+
+#### New Section Added
+- **Created "Applications" section** on Home page
+  - Position: **Row 1, Position 4** (AI Tools, Development Tools, Automate & Integ, Applications)
+  - Icon: fas fa-th (grid icon)
+  - Purpose: Index of nginx.ai-servicers.com portal
+
+#### Final Configuration
+**Applications Section contains:**
+- **Nginx Portal** - https://nginx.ai-servicers.com (landing page for all static sites)
+
+**Section Order (First Row):**
+1. AI Tools
+2. Development Tools
+3. Automate & Integ
+4. Applications ← NEW!
+
+**Moved Context Management to Row 2** (after Applications)
+
+#### URLs Updated
+- **LangChain Portal** in AI Tools section updated from subdomain to path-based URL
+  - Old: https://langchain-portal.ai-servicers.com
+  - New: https://nginx.ai-servicers.com/langchain-portal/
+
+#### Deployment Notes
+- **File edited**: `/home/administrator/projects/dashy/config/conf.yml` (HOME page)
+- **Deployed using**: `./deploy.sh` (complete container recreation - REQUIRED!)
+- **Status**: ✅ Successfully deployed and verified
+
+#### Other Changes
+- **Removed** "Web Portal" duplicate from Core Services section
+- Nginx Portal now only appears in Applications section (row 1, position 4)
+
+#### Important Lessons
+- ❌ Initially edited `/home/administrator/projects/data/dashy/infra.yml` (WRONG - not used as a page)
+- ✅ Corrected by editing `/home/administrator/projects/dashy/config/conf.yml` (HOME page config)
+- ✅ Always run `./deploy.sh` after config changes (container restart alone is insufficient)
+- ✅ Section order matters - first 4 sections appear in row 1
+
 ### 2025-11-03 - Added OpenMemory to Context Management (Home)
 
 #### Service Addition
