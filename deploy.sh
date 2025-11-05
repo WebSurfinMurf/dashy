@@ -58,7 +58,7 @@ docker run -d \
   --network dashy-net \
   --network-alias dashy \
   -v /home/administrator/projects/dashy/config/conf.yml:/app/user-data/conf.yml \
-  -v /home/administrator/projects/dashy/data:/app/user-data \
+  -v /home/administrator/projects/data/dashy:/app/user-data \
   --health-cmd "node /app/services/healthcheck || exit 1" \
   --health-interval 30s \
   --health-timeout 10s \
