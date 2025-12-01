@@ -65,12 +65,15 @@ docker run -d \
   --health-retries 3 \
   lissy93/dashy:latest
 
+# Ensure redis-net exists
+docker network create redis-net 2>/dev/null || echo "Network redis-net already exists"
+
 # Deploy OAuth2 Proxy with Traefik labels
 echo -e "${YELLOW}Deploying OAuth2 Proxy...${NC}"
 docker run -d \
   --name dashy-auth-proxy \
   --restart unless-stopped \
-  --network traefik-net \
+  --network redis-net \
   --env-file $HOME/projects/secrets/dashy.env \
   -e OAUTH2_PROXY_UPSTREAMS=http://dashy:8080/ \
   -e OAUTH2_PROXY_PASS_HOST_HEADER=false \
@@ -81,10 +84,13 @@ docker run -d \
   --label "traefik.http.routers.dashy.tls=true" \
   --label "traefik.http.routers.dashy.tls.certresolver=letsencrypt" \
   --label "traefik.http.services.dashy.loadbalancer.server.port=4180" \
-  quay.io/oauth2-proxy/oauth2-proxy:latest
+  quay.io/oauth2-proxy/oauth2-proxy:latest \
+  --session-store-type=redis \
+  --redis-connection-url=redis://:rvSqetVQklW4AjSpxk4vX5vvc@redis:6379
 
-# Connect OAuth2 proxy to additional networks (keycloak for auth, dashy-net for backend)
-echo -e "${YELLOW}Connecting OAuth2 proxy to keycloak-net and dashy-net...${NC}"
+# Connect OAuth2 proxy to additional networks (traefik for web, keycloak for auth, dashy-net for backend)
+echo -e "${YELLOW}Connecting OAuth2 proxy to traefik-net, keycloak-net, and dashy-net...${NC}"
+docker network connect traefik-net dashy-auth-proxy 2>/dev/null || true
 docker network connect keycloak-net dashy-auth-proxy 2>/dev/null || true
 docker network connect dashy-net dashy-auth-proxy 2>/dev/null || true
 
