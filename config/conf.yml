@@ -1,6 +1,8 @@
 pages:
 - name: Home
   path: conf.yml
+- name: Dev
+  path: dev.yml
 - name: Agentic AI
   path: ai-chat.yml
 - name: Finance
